@@ -1,3 +1,5 @@
+import '@/assets/scss/style.scss';
+
 export const metadata = {
   title: '박민주 포트폴리오',
   description: 'Next.js로 제작한 박민주 포트폴리오 사이트입니다.',
