@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import Skip from '@/components/Skip';
 import Intro from '@/components/Intro';
 import Skill from '@/components/Skill';
+import Site from '@/components/Site';
 import Port from '@/components/Port';
 import Contact from '@/components/Contact';
 import lenis from '@/utils/lenis';
@@ -24,6 +25,7 @@ export default function Home() {
       <main id="main" role="main">
         <Intro />
         <Skill />
+        <Site />
         <Port />
         <Contact />
       </main>

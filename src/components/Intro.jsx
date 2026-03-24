@@ -25,7 +25,13 @@ const Intro = () => {
             <div>effort</div>
           </div>
           <div className="img">
-            <Image src={introText.img} alt="어바웃미" width={300} height={300} />
+            <Image
+              src={introText.img}
+              alt="어바웃미"
+              width={300}
+              height={300}
+              style={{ width: '100%', height: '100%' }}
+            />
           </div>
         </div>
         <div className="intro__lines bottom" aria-hidden="true">
