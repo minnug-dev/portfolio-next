@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { introText } from '@/constants';
+import { aboutText } from '@/constants';
 
-const Intro = () => {
+const about = () => {
   return (
-    <section id="intro">
-      <div className="intro__inner">
-        <h2 className="intro__title">{introText.title}</h2>
-        <div className="intro__lines" aria-hidden="true">
+    <section id="about">
+      <div className="about__inner">
+        <h2 className="about__title">{aboutText.title}</h2>
+        <div className="about__lines" aria-hidden="true">
           <span className="line"></span>
           <span className="line"></span>
           <span className="line"></span>
@@ -17,16 +17,16 @@ const Intro = () => {
           <span className="line"></span>
           <span className="line"></span>
         </div>
-        <div className="intro__text">
+        <div className="about__text">
           <div className="text">
-            <div>{introText.desc[0]}</div>
-            <div>{introText.desc[1]}</div>
-            <div>{introText.desc[2]}</div>
+            <div>{aboutText.desc[0]}</div>
+            <div>{aboutText.desc[1]}</div>
+            <div>{aboutText.desc[2]}</div>
             <div>effort</div>
           </div>
           <div className="img">
             <Image
-              src={introText.img}
+              src={aboutText.img}
               alt="어바웃미"
               width={300}
               height={300}
@@ -34,7 +34,7 @@ const Intro = () => {
             />
           </div>
         </div>
-        <div className="intro__lines bottom" aria-hidden="true">
+        <div className="about__lines bottom" aria-hidden="true">
           <span className="line"></span>
           <span className="line"></span>
           <span className="line"></span>
@@ -48,4 +48,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default about;

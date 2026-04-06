@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Skip from '@/components/Skip';
-import Intro from '@/components/Intro';
+import About from '@/components/About';
 import Skill from '@/components/Skill';
 import Site from '@/components/Site';
 import Port from '@/components/Port';
@@ -23,7 +23,7 @@ export default function Home() {
       <Skip />
       <Header />
       <main id="main" role="main">
-        <Intro />
+        <About />
         <Skill />
         <Site />
         <Port />

@@ -12,8 +12,8 @@ import port10 from '../assets/img/port10.jpg';
 
 export const headerNav = [
   {
-    title: 'intro',
-    url: '#intro',
+    title: 'about',
+    url: '#about',
   },
   {
     title: 'skill',
@@ -33,7 +33,7 @@ export const headerNav = [
   },
 ];
 
-export const introText = {
+export const aboutText = {
   title: 'port developer',
   desc: ['talent is', 'found at the end of the', 'effort'],
   img: about,

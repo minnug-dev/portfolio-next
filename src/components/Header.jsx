@@ -26,19 +26,6 @@ const Header = () => {
                 <a href={nav.url}>{nav.title}</a>
               </li>
             ))}
-
-            <li>
-              <a href="#skill">skill</a>
-            </li>
-            <li>
-              <a href="#site">site</a>
-            </li>
-            <li>
-              <a href="#port">portfolio</a>
-            </li>
-            <li>
-              <a href="#contact">contact</a>
-            </li>
           </ul>
         </nav>
         <div
