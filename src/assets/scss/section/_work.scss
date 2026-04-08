@@ -1,4 +1,4 @@
-.slkll__inner {
+.work__inner {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -7,7 +7,7 @@
     flex-direction: column;
   }
 
-  .skill__title {
+  .work__title {
     position: sticky;
     top: 70px;
     left: 0;
@@ -36,7 +36,7 @@
       line-height: 2;
     }
   }
-  .skill__desc {
+  .work__desc {
     width: 50%;
 
     @media (max-width: 800px) {

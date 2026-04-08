@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Skip from '@/components/Skip';
 import About from '@/components/About';
-import Skill from '@/components/Skill';
+import Work from '@/components/Work';
 import Site from '@/components/Site';
 import Port from '@/components/Port';
 import Contact from '@/components/Contact';
@@ -24,7 +24,7 @@ export default function Home() {
       <Header />
       <main id="main" role="main">
         <About />
-        <Skill />
+        <Work />
         <Site />
         <Port />
         <Contact />
