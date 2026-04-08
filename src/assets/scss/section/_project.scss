@@ -1,7 +1,7 @@
-.site__inner {
+.project__inner {
   padding: 16px;
 
-  .site__title {
+  .project__title {
     position: sticky;
     top: 70px;
     left: 0;
@@ -32,8 +32,8 @@
       line-height: 2;
     }
   }
-  .site__wrap {
-    .site__item {
+  .project__wrap {
+    .project__item {
       height: 70vh;
       @include flex-center;
       flex-direction: column;

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import Skip from '@/components/Skip';
 import About from '@/components/About';
 import Work from '@/components/Work';
-import Site from '@/components/Site';
+import Project from '@/components/Project';
 import Port from '@/components/Port';
 import Contact from '@/components/Contact';
 import lenis from '@/utils/lenis';
@@ -25,8 +25,8 @@ export default function Home() {
       <main id="main" role="main">
         <About />
         <Work />
-        <Site />
-        <Port />
+        <Project />
+        {/* <Port /> */}
         <Contact />
       </main>
       <Footer />

@@ -20,13 +20,13 @@ export const headerNav = [
     url: '#work',
   },
   {
-    title: 'site',
-    url: '#site',
+    title: 'projects',
+    url: '#project',
   },
-  {
-    title: 'portfolio',
-    url: '#port',
-  },
+  // {
+  //   title: 'portfolio',
+  //   url: '#port',
+  // },
   {
     title: 'contact',
     url: '#contact',
@@ -54,34 +54,34 @@ export const workText = [
   },
 ];
 
-export const siteText = [
+export const projectText = [
   {
-    text: ['make', 'site compliant with', 'webstandard'],
+    text: ['make', 'project compliant with', 'webstandard'],
     title: '비트를 이용한 사이트 제작',
     code: 'https://github.com/webstoryboy/port2023-vite',
     view: 'https://port2023-vite.netlify.app',
-    info: ['site coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, Vite'],
+    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, Vite'],
   },
   {
-    text: ['make', 'site compliant with', 'react.js'],
+    text: ['make', 'project compliant with', 'react.js'],
     title: '리액트를 이용한 사이트 제작',
     code: 'https://github.com/webstoryboy/port2023-react',
     view: 'https://port2023-react.netlify.app',
-    info: ['site coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, react'],
+    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, react'],
   },
   {
-    text: ['make', 'site compliant with', 'vue.js'],
+    text: ['make', 'project compliant with', 'vue.js'],
     title: '뷰를 이용한 사이트 제작',
     code: 'https://github.com/webstoryboy/port2023-vue',
     view: 'https://port2023-vue.netlify.app',
-    info: ['site coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, vue'],
+    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, vue'],
   },
   {
-    text: ['make', 'site compliant with', 'next.js'],
+    text: ['make', 'project compliant with', 'next.js'],
     title: '넥스트를 이용한 사이트 제작',
     code: 'https://github.com/webstoryboy/port2023-next',
     view: 'https://port2023-next.netlify.app',
-    info: ['site coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, next.js'],
+    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, next.js'],
   },
 ];
 
