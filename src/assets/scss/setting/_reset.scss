@@ -39,6 +39,13 @@ figcaption {
 }
 
 // 폰트 초기화
+html {
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
 body,
 button,
 input,

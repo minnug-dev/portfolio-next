@@ -1,0 +1,27 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+body {
+  font-size: 1rem;
+  font-family: var(--mainEng-font), var(--mainKor-font), sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  background-color: var(--beige);
+
+  @media (max-width: 800px) {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
