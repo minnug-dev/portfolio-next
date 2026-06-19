@@ -6,9 +6,7 @@ const work = () => {
   return (
     <section id="work">
       <div className="work__inner">
-        <h2 className="work__title">
-          challenge <em>나의 도전</em>
-        </h2>
+        <h2 className="work__title">Work</h2>
         <div className="work__desc">
           {workText.map((work, key) => (
             <div key={key}>
