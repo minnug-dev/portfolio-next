@@ -1,33 +1,35 @@
 @use '../setting' as *;
 
-.about__inner {
-  @media (max-width: 800px) {
-  }
-  > .img {
-    width: 90rem;
+.about {
+  padding-top: 15rem;
+  &__inner {
+    @include flex(between);
+    max-width: 100rem;
     margin: 0 auto;
-    padding-top: 10rem;
+    padding: 0 2rem;
 
-    img {
-      text-align: center;
+    .sub-tit {
+      padding-bottom: 2rem;
     }
-  }
 
-  .about__title {
-    font-size: var(--fs-lg);
-    @media (max-width: 320px) {
-      display: none;
-    }
-  }
-  .about__text {
-    .text {
-      font-size: var(--fs-lg);
+    .img-wrap {
+      max-width: 50rem;
+      margin: 0 auto;
+      margin-right: 4rem;
 
-      @media (max-width: 800px) {
+      img {
+        text-align: center;
       }
     }
-    .img {
-      @media (max-width: 320px) {
+
+    .text-wrap {
+      .desc {
+        p {
+          padding-bottom: 1.5rem;
+          font-size: 20px;
+          color: var(--black200);
+          word-break: keep-all;
+        }
       }
     }
   }
