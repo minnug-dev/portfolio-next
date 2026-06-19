@@ -1,0 +1,32 @@
+@use '../setting' as *;
+
+.intro {
+  &__inner {
+    padding: 12rem 2rem 0;
+
+    @media (max-width: 800px) {
+    }
+  }
+
+  &__title {
+    &.wrap {
+      max-width: 87.5rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .text {
+      display: block;
+      padding-bottom: 0.5rem;
+      font-size: 1.2rem;
+      color: var(--black200);
+      font-weight: 500;
+    }
+
+    .tit p {
+      font-size: 6.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+  }
+}
