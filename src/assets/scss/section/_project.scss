@@ -36,8 +36,8 @@
   }
   .project__wrap {
     .project__item {
+      @include flex(center);
       height: 70vh;
-      @include flex-center;
       flex-direction: column;
       position: sticky;
       left: 0;
