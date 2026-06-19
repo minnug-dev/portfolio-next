@@ -1,26 +1,29 @@
 @use '../setting' as *;
 
-#header {
+.header {
   @include position-fixed;
-  z-index: 10000;
-}
-.header__inner {
-  @include flex-between;
-  padding: 0.5rem 2rem;
-  border-bottom: 1px solid var(--black);
+  z-index: 10;
 
-  .header__logo {
+  &__inner {
+    @include flex(between);
+    padding: 1.875rem 2rem;
+  }
+
+  &__logo {
     a {
-      display: block;
-      width: 3.125rem;
+      font-size: 1.375rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      vertical-align: middle;
     }
   }
 
-  .header__nav {
-    text-align: right;
-
+  &__nav {
+    margin: 0 auto;
     ul {
       display: flex;
+      background-color: var(--white);
+      border-radius: 50px;
     }
     @media (max-width: 800px) {
       display: none;
@@ -57,7 +60,6 @@
         width: 20px;
       }
     }
-
     li {
       a {
         display: block;
@@ -65,47 +67,50 @@
         padding: 0.625rem 0;
         margin-left: 3rem;
         font-size: 1rem;
+        font-weight: 500;
+      }
+      &:last-child {
+        margin-right: 3rem;
       }
     }
-  }
-
-  .header__nav__mobile {
-    display: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-
-    @media (max-width: 800px) {
-      display: block;
-    }
-
-    span {
-      display: block;
+    &__mobile {
+      display: none;
       width: 40px;
-      height: 2px;
-      background-color: var(--black);
-      margin-top: 19px;
-      position: relative;
+      height: 40px;
+      cursor: pointer;
 
-      &::before {
-        content: '';
-        width: 40px;
-        height: 2px;
-        background-color: var(--black);
-        position: absolute;
-        right: 0;
-        top: 6px;
-        transition: width 0.3s;
+      @media (max-width: 800px) {
+        display: block;
       }
-      &::after {
-        content: '';
+
+      span {
+        display: block;
         width: 40px;
         height: 2px;
         background-color: var(--black);
-        position: absolute;
-        left: 0;
-        bottom: 6px;
-        transition: width 0.3s;
+        margin-top: 19px;
+        position: relative;
+
+        &::before {
+          content: '';
+          width: 40px;
+          height: 2px;
+          background-color: var(--black);
+          position: absolute;
+          right: 0;
+          top: 6px;
+          transition: width 0.3s;
+        }
+        &::after {
+          content: '';
+          width: 40px;
+          height: 2px;
+          background-color: var(--black);
+          position: absolute;
+          left: 0;
+          bottom: 6px;
+          transition: width 0.3s;
+        }
       }
     }
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
-import { headerNav } from '@/constants';
+import { headerNav, headerImg } from '@/constants';
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -10,13 +11,11 @@ const Header = () => {
   };
 
   return (
-    <header id="header" role="banner">
+    <header className="header" role="banner">
       <div className="header__inner">
         <div className="header__logo">
           <h1>
-            <a href="#">
-              portfolio<em>next.js</em>
-            </a>
+            <a href="#">minjoo</a>
           </h1>
         </div>
         <nav className={`header__nav ${show ? 'show' : ''}`} role="navigation" aria-label="메인 메뉴">
