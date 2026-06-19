@@ -1,4 +1,11 @@
+import localFont from 'next/font/local';
 import '@/assets/scss/style.scss';
+
+const pretendard = localFont({
+  src: '../assets/font/pretendard/PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+});
 
 export const metadata = {
   title: '박민주 포트폴리오',
@@ -9,8 +16,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-      <body>{children}</body>
+      <link rel="icon" href="favicon.svg" />
+      <body className={pretendard.variable}>{children}</body>
     </html>
   );
 }

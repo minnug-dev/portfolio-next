@@ -1,4 +1,4 @@
-import about from '../assets/img/about.jpg';
+import visual from '../assets/img/visual.png';
 import port01 from '../assets/img/port01.jpg';
 import port02 from '../assets/img/port02.jpg';
 import port03 from '../assets/img/port03.jpg';
@@ -12,31 +12,37 @@ import port10 from '../assets/img/port10.jpg';
 
 export const headerNav = [
   {
-    title: 'about',
+    title: 'About',
     url: '#about',
   },
   {
-    title: 'work',
+    title: 'Work',
     url: '#work',
   },
   {
-    title: 'projects',
+    title: 'Projects',
     url: '#project',
   },
-  // {
-  //   title: 'portfolio',
-  //   url: '#port',
-  // },
   {
-    title: 'contact',
+    title: 'Contact',
     url: '#contact',
   },
 ];
 
+export const introText = {
+  text: 'HELLO THERE!👋🏻',
+  tit: ['I’m Minjoo Park,', 'Welcome to', 'my web portfolio!'],
+};
+
 export const aboutText = {
-  title: 'port developer',
-  desc: ['talent is', 'found at the end of the', 'effort'],
-  img: about,
+  img: visual,
+  stit: 'about me',
+  desc: [
+    '안녕하세요! 웹 퍼블리셔 박민주입니다.',
+    '사용자가 편안하게 이용할 수 있는 인터페이스를 만드는 일에 즐거움을 느끼며, 웹 표준과 접근성을 기반으로 완성도 높은 화면을 구현하고 있습니다.',
+    'HTML, CSS, JavaScript는 물론 Vues.js와 React, Next.js 환경에서도 컴포넌트 단위의 마크업 작업이 가능하며, 백엔드 개발자와의 협업 및 API 연동 경험을 통해 서비스 전반에 대한 이해를 넓혀왔습니다.',
+    '프로젝트의 목적과 사용자 경험을 함께 고민하며, 원활한 협업을 바탕으로 더 나은 결과물을 만드는 것을 중요하게 생각합니다. 현재는 퍼블리싱 역량을 기반으로 프론트엔드 개발 역량까지 꾸준히 확장해 나가고 있습니다.',
+  ],
 };
 
 export const workText = [
