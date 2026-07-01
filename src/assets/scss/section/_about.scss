@@ -3,32 +3,90 @@
 .about {
   padding-top: 15rem;
   &__inner {
-    @include flex(between);
+    margin: 0 auto 15rem;
     max-width: 100rem;
-    margin: 0 auto;
     padding: 0 2rem;
 
     .sub-tit {
       padding-bottom: 2rem;
     }
 
-    .img-wrap {
-      max-width: 50rem;
-      margin: 0 auto;
-      margin-right: 4rem;
+    .introduce {
+      @include flex(between);
 
-      img {
-        text-align: center;
+      .img-wrap {
+        max-width: 50rem;
+        width: 100%;
+        margin: 0 auto;
+        margin-right: 4rem;
+
+        img {
+          text-align: center;
+        }
+      }
+
+      .txt-wrap {
+        .desc {
+          p {
+            padding-bottom: 1.5rem;
+            font-size: 20px;
+            color: var(--black200);
+            word-break: keep-all;
+          }
+        }
       }
     }
 
-    .text-wrap {
-      .desc {
-        p {
-          padding-bottom: 1.5rem;
-          font-size: 20px;
-          color: var(--black200);
-          word-break: keep-all;
+    .history-list {
+      @include flex(between, start);
+      flex-wrap: wrap;
+      gap: 1.875rem;
+      margin-top: 3rem;
+
+      li {
+        width: calc((100% - 1.875rem) / 2);
+
+        h3 {
+          margin-bottom: 1.25rem;
+          font-weight: 600;
+          color: var(--black300);
+        }
+
+        .item {
+          > div {
+            @include flex(start, start);
+            margin-bottom: 1.875rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .date {
+              width: 100%;
+              max-width: 11rem;
+              padding: 0.1rem 1rem;
+              color: var(--black200);
+              font-weight: 500;
+              text-align: center;
+              background-color: var(--white);
+              border-radius: 50px;
+            }
+
+            .txt-wrap {
+              padding-left: 1rem;
+
+              .name {
+                font-size: 1.125rem;
+                font-weight: 600;
+                margin-bottom: 0.125rem;
+              }
+
+              .desc {
+                color: var(--black300);
+                word-break: keep-all;
+              }
+            }
+          }
         }
       }
     }
