@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Skip from '@/components/Skip';
 import Intro from '@/components/Intro';
 import About from '@/components/About';
@@ -11,6 +10,7 @@ import Project from '@/components/Project';
 import Contact from '@/components/Contact';
 import lenis from '@/utils/lenis';
 import link from '@/utils/link';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   useEffect(() => {
@@ -22,12 +22,11 @@ export default function Home() {
     <>
       <Skip />
       <Header />
-      <main id="main" role="main">
+      <main className="main" role="main">
         <Intro />
         <About />
         <Work />
         <Project />
-        {/* <Port /> */}
         <Contact />
       </main>
       <Footer />
