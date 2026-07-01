@@ -1,29 +1,36 @@
 import React from 'react';
 
 import { projectText } from '@/constants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const project = () => {
   return (
     <section id="project">
       <div className="project__inner">
         <h2 className="sub-tit">projects</h2>
-        <div className="project__wrap">
-          {projectText.map((project, key) => (
-            <article className={`project-item s${key + 1}`} key={key}>
+        <div className="project-list">
+          {projectText.map((project, index) => (
+            <article className={`project-item s${index + 1}`} key={index}>
               <div className="text">
-                <div>{project.text[0]}</div>
-                <div>{project.text[1]}</div>
-                <div>{project.text[2]}</div>
+                <h3>{project.text.title}</h3>
+                <h4>{project.text.subTitle}</h4>
+                <p>{project.text.desc}</p>
               </div>
-              <h3 className="title">{project.title}</h3>
               <div className="btn">
-                <a href={project.code}>code</a>
-                <a href={project.view}>view</a>
+                {project.buttons.map((button, index) => (
+                  <a key={index} href={button.href} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={button.icon} className="icon" />
+                    <span>{button.text}</span>
+                  </a>
+                ))}
               </div>
               <div className="info">
-                <span>{project.info[0]}</span>
-                <span>{project.info[1]}</span>
-                <span>{project.info[2]}</span>
+                <span className="name">{project.info.name}</span>
+                <span className="date">{project.info.date}</span>
+                <span className="stack">
+                  <FontAwesomeIcon icon={project.info.icon} className="icon" />
+                  {project.info.stack}
+                </span>
               </div>
             </article>
           ))}
