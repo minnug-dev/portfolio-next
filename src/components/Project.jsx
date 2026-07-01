@@ -6,13 +6,10 @@ const project = () => {
   return (
     <section id="project">
       <div className="project__inner">
-        <h2 className="project__title">
-          project Coding <em>나의 작업물</em>
-        </h2>
+        <h2 className="sub-tit">projects</h2>
         <div className="project__wrap">
           {projectText.map((project, key) => (
-            <article className={`project__item s${key + 1}`} key={key}>
-              <span className="num">{key + 1}.</span>
+            <article className={`project-item s${key + 1}`} key={key}>
               <div className="text">
                 <div>{project.text[0]}</div>
                 <div>{project.text[1]}</div>

@@ -1,49 +1,29 @@
 @use '../setting' as *;
 
-.project__inner {
-  padding: 16px;
+.project {
+  &__inner {
+    padding: 1rem;
+    padding-bottom: 10rem;
 
-  .project__title {
-    position: sticky;
-    top: 70px;
-    left: 0;
-    width: 70%;
-    height: 5vw;
-    font-size: 4vw;
-    font-weight: 900;
-    line-height: 1.6;
-    font-family: var(--mainKor-font);
-    text-transform: uppercase;
-    color: var(--black100);
-    border-bottom: 0.4vw solid var(--black100);
-    margin-bottom: 100px;
-
-    @media (max-width: 800px) {
-      width: 100%;
-      margin-bottom: 10vw;
-      font-size: 30px;
-      height: auto;
-      top: 68px;
-      z-index: 1000;
-      background-color: var(--mainBg-color);
-    }
-
-    em {
-      font-size: 1.25rem;
-      font-weight: 400;
-      line-height: 2;
+    .sub-tit {
+      position: sticky;
+      top: 8rem;
+      margin-bottom: 2rem;
+      text-align: center;
     }
   }
-  .project__wrap {
-    .project__item {
-      @include flex(center);
+
+  &__wrap {
+    .project-item {
+      @include column-flex(center);
       height: 70vh;
-      flex-direction: column;
       position: sticky;
       left: 0;
+      border-radius: 1.5rem;
+      margin-bottom: 2rem;
 
       &.s1 {
-        background-color: var(--subBg100);
+        background-color: var(--yellow);
         top: 180px;
 
         @media (max-width: 800px) {
@@ -51,7 +31,7 @@
         }
       }
       &.s2 {
-        background-color: var(--subBg200);
+        background-color: var(--green);
         top: 200px;
 
         @media (max-width: 800px) {
@@ -59,7 +39,7 @@
         }
       }
       &.s3 {
-        background-color: var(--subBg300);
+        background-color: var(--skyblue);
         top: 220px;
 
         @media (max-width: 800px) {
@@ -67,7 +47,7 @@
         }
       }
       &.s4 {
-        background-color: var(--subBg400);
+        background-color: var(--orange);
         top: 240px;
 
         @media (max-width: 800px) {
@@ -98,8 +78,6 @@
           line-height: 1;
           font-weight: 900;
           text-transform: uppercase;
-          text-decoration: underline;
-          font-family: var(--mainEng-font);
 
           @media (max-width: 800px) {
             font-size: 26px;
