@@ -5,6 +5,8 @@ import work03 from '../assets/img/work_meplz_people.png';
 import work04 from '../assets/img/work_meplz_consoli.png';
 import work05 from '../assets/img/work_meplz_hyundai.png';
 import work06 from '../assets/img/work_meplz_valex.png';
+import { faGithub, faNotion } from '@fortawesome/free-brands-svg-icons';
+import { faArrowUpRightFromSquare, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 
 export const headerNav = [
   {
@@ -146,32 +148,104 @@ export const workText = [
 
 export const projectText = [
   {
-    text: ['make', 'project compliant with', 'webstandard'],
-    title: '비트를 이용한 사이트 제작',
-    code: 'https://github.com/webstoryboy/port2023-vite',
-    view: 'https://port2023-vite.netlify.app',
-    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, Vite'],
+    text: {
+      title: '다인리뷰',
+      subTitle: '사업주와 인플루언서 상생 체험단 플랫폼',
+      desc: 'PM, UX/UI, FE, BE 팀과 협업하여 기업이 원하는 서비스를 구현한 기업 연계 프로젝트입니다.',
+    },
+    buttons: [
+      {
+        text: 'Github',
+        href: 'https://github.com/minnug-dev/final_project',
+        icon: faGithub,
+      },
+      {
+        text: 'Project Docs',
+        href: 'https://app.notion.com/p/nugmin/6-_-10e9975be804806981ddd6c6d84af993?source=copy_link',
+        icon: faNotion,
+      },
+    ],
+    info: {
+      icon: faScrewdriverWrench,
+      name: '기업 연계 프로젝트',
+      date: '프로젝트 기간: 2024.07.17-2024.09.20 / 개발 기간: 2024.08.12-2024.09.20',
+      stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
+    },
   },
   {
-    text: ['make', 'project compliant with', 'react.js'],
-    title: '리액트를 이용한 사이트 제작',
-    code: 'https://github.com/webstoryboy/port2023-react',
-    view: 'https://port2023-react.netlify.app',
-    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, CSS Variable, react'],
+    text: {
+      title: '저기어때',
+      subTitle: '숙박 예약 사이트',
+      desc: 'BE 팀과 협업하여 제작한 숙박 검색 및 예약 서비스를 제공하는 숙박 예약 사이트입니다.',
+    },
+    buttons: [
+      {
+        text: 'Github',
+        href: 'https://github.com/minnug-dev/jeogieottae_mini',
+        icon: faGithub,
+      },
+      {
+        text: 'View',
+        href: 'https://your-trip-pied.vercel.app/',
+        icon: faArrowUpRightFromSquare,
+      },
+    ],
+    info: {
+      icon: faScrewdriverWrench,
+      name: '미니 프로젝트',
+      date: '개발 기간: 2024.06.17-2024.07.07',
+      stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
+    },
   },
   {
-    text: ['make', 'project compliant with', 'vue.js'],
-    title: '뷰를 이용한 사이트 제작',
-    code: 'https://github.com/webstoryboy/port2023-vue',
-    view: 'https://port2023-vue.netlify.app',
-    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, vue'],
+    text: {
+      title: '헬스 캘린더',
+      subTitle: '개인 운동 정보 기록 플랫폼',
+      desc: '캘린더를 통해 PT 수업 받은 내용을 기록하며 개인 운동 정보를 기록하고 관리할 수 있는 플랫폼입니다.',
+    },
+    buttons: [
+      {
+        text: 'Github',
+        href: 'https://github.com/minnug-dev/health-calendar_toy2',
+        icon: faGithub,
+      },
+      {
+        text: 'View',
+        href: 'https://health-two-silk.vercel.app/',
+        icon: faArrowUpRightFromSquare,
+      },
+    ],
+    info: {
+      icon: faScrewdriverWrench,
+      name: '토이 프로젝트 2',
+      date: '개발 기간: 2024.05.27-2024.06.08',
+      stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
+    },
   },
   {
-    text: ['make', 'project compliant with', 'next.js'],
-    title: '넥스트를 이용한 사이트 제작',
-    code: 'https://github.com/webstoryboy/port2023-next',
-    view: 'https://port2023-next.netlify.app',
-    info: ['project coding', 'production period : two days', 'use stack : HTML5/CSS3, Scss Variable, next.js'],
+    text: {
+      title: '패스트캠퍼스 인트라넷',
+      subTitle: '수강생들을 위한 패스트캠퍼스 인트라넷',
+      desc: '패스트캠퍼스 학원 수강생들이 편리하게 사용할 수 있게 제작한 인트라넷입니다.',
+    },
+    buttons: [
+      {
+        text: 'Github',
+        href: 'https://github.com/minnug-dev/intranet-app_toy1',
+        icon: faGithub,
+      },
+      {
+        text: 'View',
+        href: 'https://master--fastcampus-intrenet.netlify.app/',
+        icon: faArrowUpRightFromSquare,
+      },
+    ],
+    info: {
+      icon: faScrewdriverWrench,
+      name: '토이 프로젝트 1',
+      date: '개발 기간: 2024.04.08-2024.04.21',
+      stack: 'React, Vite, Firebase, SCSS, Figma',
+    },
   },
 ];
 
