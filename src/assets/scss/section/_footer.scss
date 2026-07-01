@@ -1,12 +1,9 @@
 @use '../setting' as *;
 
-#footer {
-  font-family: var(--mainKor-font);
-}
-.footer__inner {
-  padding: 16px;
-
-  .footer__text {
+.footer {
+  background-color: var(--black100);
+  color: var(--white);
+  &__text {
     font-size: 12px;
     text-transform: uppercase;
     border-top: 1px solid var(--black);
@@ -14,7 +11,8 @@
     display: flex;
     justify-content: space-between;
   }
-  .footer__info {
+
+  &__info {
     display: flex;
     justify-content: space-between;
     margin: 100px 0;
@@ -96,7 +94,8 @@
       }
     }
   }
-  .footer__right {
+
+  &__right {
     text-align: center;
     text-transform: uppercase;
     font-size: 12px;
