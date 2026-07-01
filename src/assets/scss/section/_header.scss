@@ -1,15 +1,12 @@
 @use '../setting' as *;
 
 .header {
-  @include position-fixed;
-  z-index: 10;
-
-  &__inner {
-    @include flex(between);
-    padding: 1.875rem 2rem;
-  }
-
   &__logo {
+    @include position-fixed;
+    z-index: $logo-level;
+    left: 1.875rem;
+    top: 2rem;
+
     a {
       font-size: 1.375rem;
       font-weight: 800;
@@ -19,12 +16,20 @@
   }
 
   &__nav {
-    margin: 0 auto;
+    @include position-fixed;
+    z-index: $nav-level;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
     ul {
-      display: flex;
+      @include flex(start);
+      gap: 2.5rem;
+      padding: 0 2.5rem;
       background-color: var(--white);
       border-radius: 50px;
     }
+
     @media (max-width: 800px) {
       display: none;
 
@@ -60,19 +65,17 @@
         width: 20px;
       }
     }
+
     li {
       a {
         display: block;
         position: relative;
         padding: 0.625rem 0;
-        margin-left: 3rem;
         font-size: 1rem;
         font-weight: 500;
       }
-      &:last-child {
-        margin-right: 3rem;
-      }
     }
+
     &__mobile {
       display: none;
       width: 40px;
@@ -111,6 +114,14 @@
           bottom: 6px;
           transition: width 0.3s;
         }
+      }
+    }
+  }
+
+  &.contact-active {
+    h1 {
+      a {
+        color: var(--white);
       }
     }
   }
