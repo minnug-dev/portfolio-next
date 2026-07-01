@@ -18,7 +18,6 @@ body {
   line-height: 1.5;
   font-weight: 400;
   letter-spacing: -0.01em;
-  background-color: var(--beige);
 
   @media (max-width: 800px) {
     font-size: 14px;
@@ -31,4 +30,8 @@ body {
   font-weight: 700;
   color: var(--black200);
   text-transform: uppercase;
+}
+
+.main {
+  background-color: var(--beige);
 }

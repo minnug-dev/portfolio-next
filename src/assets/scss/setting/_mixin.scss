@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // flexbox
 $flex-map: (
   start: flex-start,
@@ -9,7 +11,7 @@ $flex-map: (
 );
 
 @function _get-flex-value($key) {
-  @return map-get($flex-map, $key);
+  @return map.get($flex-map, $key);
 }
 
 @mixin flex($jc: center, $ai: center) {
@@ -44,5 +46,4 @@ $flex-map: (
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
 }
