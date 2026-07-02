@@ -1,28 +1,64 @@
 @use '../setting' as *;
 
 .contact {
-  padding: 1.875rem;
+  position: fixed;
+  bottom: 3.75rem;
+  left: 0;
+  right: 0;
+  z-index: -1;
   color: var(--white);
-  background-color: var(--black100);
-
-  .sub-tit {
-    color: var(--white);
-  }
+  background-color: var(--black);
 
   &__inner {
     @include column-flex(end, start);
-    min-height: 100vh;
     flex-wrap: wrap;
+    min-height: 100vh;
+    max-width: $large-wide;
+    width: 100%;
+    padding-bottom: 8rem;
+    margin: 0 auto;
   }
 
-  &__text {
-    @include flex;
-    align-items: flex-end;
-    .txt {
-      font-size: 12rem;
+  &__cont {
+    @include flex(between, end);
+    width: 100%;
+
+    .sub-tit {
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .name {
+      display: block;
+      font-size: 10vw;
+      line-height: 1;
       color: var(--white);
       font-weight: 700;
       text-transform: uppercase;
+      text-indent: -0.875rem;
+    }
+
+    .info {
+      @include flex(center, start);
+      gap: 3rem;
+
+      .menu {
+        text-align: center;
+
+        h3 {
+          margin-bottom: 1rem;
+          font-size: 1.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        a {
+          display: block;
+          padding: 0.5rem 0;
+          text-align: right;
+          font-size: 1.25rem;
+        }
+      }
     }
   }
 }

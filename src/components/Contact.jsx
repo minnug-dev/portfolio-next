@@ -27,15 +27,20 @@ const Contact = () => {
   return (
     <section id="contact" className="contact" ref={contactRef}>
       <div className="contact__inner">
-        <h2 className="sub-tit">Contact</h2>
-        <div className="contact__text">
-          <p className="txt">{contactText.txt}</p>
-          <div className="text">
-            {contactText.items.map((contact, key) => (
-              <div key={key}>
-                <a href={contact.link} target="_blank">
-                  {contact.title}
-                </a>
+        <div className="contact__cont">
+          <div>
+            <h2 className="sub-tit">Contact</h2>
+            <span className="name">{contactText.name}</span>
+          </div>
+          <div className="info">
+            {contactText.contact.map((link, index) => (
+              <div key={index} className="menu">
+                <h3>{link.title}</h3>
+                {link.links.map((item, idx) => (
+                  <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer">
+                    {item.name}
+                  </a>
+                ))}
               </div>
             ))}
           </div>
