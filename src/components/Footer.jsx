@@ -3,11 +3,15 @@ import React from 'react';
 import { footerText } from '@/constants';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer id="footer" className="footer" role="contentinfo">
       <div className="footer__inner">
-        &copy; 2023 webstoryboy
-        <br />이 사이트는 비트를 이용하여 제작하였습니다.
+        <p className="copy">
+          &copy; {currentYear} {footerText.name}. All rights reserved.
+        </p>
+        <p>{footerText.info}</p>
       </div>
     </footer>
   );
