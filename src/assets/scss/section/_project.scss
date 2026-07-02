@@ -2,7 +2,9 @@
 
 .project {
   &__inner {
-    padding: 0 1.875rem 7.5rem;
+    max-width: $large-wide;
+    width: 100%;
+    margin: 0 auto;
 
     .sub-tit {
       position: sticky;

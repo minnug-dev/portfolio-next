@@ -3,8 +3,9 @@
 .about {
   padding-top: 15rem;
   &__inner {
+    max-width: $large-wide;
+    width: 100%;
     margin: 0 auto;
-    max-width: 100rem;
     padding: 0 2rem 7.5rem;
 
     .sub-tit {

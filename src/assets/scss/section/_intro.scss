@@ -2,7 +2,7 @@
 
 .intro {
   &__inner {
-    padding: 12rem 2rem 0;
+    padding: 12rem 0 0;
 
     @media (max-width: 800px) {
     }
@@ -10,7 +10,7 @@
 
   &__title {
     &.wrap {
-      max-width: 87.5rem;
+      max-width: $medium-wide;
       width: 100%;
       margin: 0 auto;
     }
