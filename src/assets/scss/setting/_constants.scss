@@ -1,6 +1,12 @@
 // z-index 레벨
-$logo-level: 10;
-$nav-level: 10;
+$logo-level: 20;
+$nav-level: 20;
+$main-level: 10;
+
+// 이너
+$gap-inner: 3rem;
+$medium-wide: 68.75rem;
+$large-wide: 100rem;
 
 // 미디어쿼리 분기점
 $mobile: 768px;

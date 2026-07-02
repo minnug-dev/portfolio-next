@@ -1,3 +1,5 @@
+@use './constants' as *;
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -33,5 +35,8 @@ body {
 }
 
 .main {
+  z-index: $main-level;
+  padding-bottom: 5rem;
+  margin-bottom: 100vh;
   background-color: var(--beige);
 }
