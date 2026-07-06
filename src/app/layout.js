@@ -2,6 +2,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import localFont from 'next/font/local';
 import '@/assets/scss/style.scss';
+import Cursor from '../components/Cursor';
 
 config.autoAddCss = false;
 
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <link rel="icon" href="favicon.svg" />
-      <body className={pretendard.variable}>{children}</body>
+      <body className={pretendard.variable}>
+        <Cursor />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,8 +1,74 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { headerNav } from '@/constants';
+import gsap from 'gsap';
 
 const Header = () => {
+  useEffect(() => {
+    const items = document.querySelectorAll('.header__nav li');
+
+    const cleanups = [];
+
+    items.forEach((item) => {
+      const link = item.querySelector('a');
+      const dot = item.querySelector('.dot');
+
+      const enter = () => {
+        gsap.killTweensOf([link, dot]);
+
+        const tl = gsap.timeline();
+
+        // 점 등장
+        tl.to(dot, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.15,
+          ease: 'back.out(3)',
+        });
+
+        // 점과 글자가 같이 튕김
+        tl.to(
+          [link, dot],
+          {
+            y: 5,
+            duration: 0.1,
+            ease: 'power1.in',
+          },
+          0,
+        )
+          .to([link, dot], {
+            y: -3,
+            duration: 0.15,
+            ease: 'power2.out',
+          })
+          .to([link, dot], {
+            y: 0,
+            duration: 0.15,
+            ease: 'power2.out',
+          });
+      };
+
+      const leave = () => {
+        gsap.to(dot, {
+          scale: 0,
+          opacity: 0,
+          duration: 0.2,
+        });
+      };
+
+      item.addEventListener('mouseenter', enter);
+      item.addEventListener('mouseleave', leave);
+
+      cleanups.push(() => {
+        item.removeEventListener('mouseenter', enter);
+        item.removeEventListener('mouseleave', leave);
+      });
+    });
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+    };
+  }, []);
+
   const [show, setShow] = useState(false);
 
   const toggleMenu = () => {
@@ -21,7 +87,10 @@ const Header = () => {
           <ul>
             {headerNav.map((nav, key) => (
               <li key={key}>
-                <a href={nav.url}>{nav.title}</a>
+                <span className="dot"></span>
+                <a href={nav.url} data-cursor data-cursor-size="50">
+                  {nav.title}
+                </a>
               </li>
             ))}
           </ul>

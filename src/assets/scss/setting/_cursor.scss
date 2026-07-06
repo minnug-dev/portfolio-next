@@ -1,0 +1,30 @@
+@use './constants' as *;
+@use './mixin' as *;
+
+.cursor {
+  @include flex(center, center);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: $cursor-level;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--white);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform, width, height, background-color;
+  transition: border-radius 0.2s;
+
+  &-text {
+    color: var(--black);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+[data-cursor] * {
+  pointer-events: none;
+}
