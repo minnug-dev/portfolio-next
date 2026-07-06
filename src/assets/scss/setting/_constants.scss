@@ -1,9 +1,12 @@
 // z-index 레벨
-$logo-level: 20;
+$skip-level: 100;
+$cursor-level: 30;
 $nav-level: 20;
+$logo-level: 20;
 $main-level: 10;
+$hover-level: 10;
 
-// 이너
+// 레이아웃
 $gap-inner: 3rem;
 $medium-wide: 68.75rem;
 $large-wide: 100rem;
