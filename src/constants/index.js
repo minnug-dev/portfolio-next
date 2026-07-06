@@ -73,7 +73,12 @@ export const aboutText = {
         {
           date: '2013.03 - 2017.02',
           name: '동덕여자대학교',
-          desc: '아동학 학사',
+          desc: '아동학 학사 졸업',
+        },
+        {
+          date: '2010.03 - 2013.02',
+          name: '서울세종고등학교',
+          desc: '인문계 졸업',
         },
       ],
     },
@@ -168,8 +173,12 @@ export const projectText = [
     info: {
       icon: faScrewdriverWrench,
       name: '기업 연계 프로젝트',
-      date: '프로젝트 기간: 2024.07.17-2024.09.20 / 개발 기간: 2024.08.12-2024.09.20',
+      date: '개발 기간: 2024.08.12-2024.09.20',
       stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
+    },
+    img: {
+      src: work01,
+      alt: '다인리뷰 화면',
     },
   },
   {
@@ -196,6 +205,10 @@ export const projectText = [
       date: '개발 기간: 2024.06.17-2024.07.07',
       stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
     },
+    img: {
+      src: work02,
+      alt: '미니 프로젝트 화면',
+    },
   },
   {
     text: {
@@ -220,6 +233,10 @@ export const projectText = [
       name: '토이 프로젝트 2',
       date: '개발 기간: 2024.05.27-2024.06.08',
       stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
+    },
+    img: {
+      src: work03,
+      alt: '토이 프로젝트 2 화면',
     },
   },
   {
@@ -246,57 +263,62 @@ export const projectText = [
       date: '개발 기간: 2024.04.08-2024.04.21',
       stack: 'React, Vite, Firebase, SCSS, Figma',
     },
+    img: {
+      src: work04,
+      alt: '토이 프로젝트 1 화면',
+    },
   },
 ];
 
 export const contactText = {
-  txt: 'Minjoo',
-  items: [
+  name: 'Minjoo',
+  contact: [
     {
-      link: '123',
-      title: '456',
+      title: 'link',
+      links: [
+        {
+          link: 'mailto:parkminnug@gmail.com',
+          name: 'Email',
+        },
+        {
+          link: 'https://github.com/minnug-dev',
+          name: 'Github',
+        },
+        {
+          link: 'abc',
+          name: 'Resume',
+        },
+        {
+          link: 'https://velog.io/@minnug/posts',
+          name: 'Blog',
+        },
+      ],
     },
     {
-      link: '123',
-      title: '456',
+      title: 'menu',
+      links: [
+        {
+          link: '#About',
+          name: 'About',
+        },
+        {
+          link: '#Work',
+          name: 'Work',
+        },
+        {
+          link: '#Projects',
+          name: 'Project',
+        },
+        {
+          link: '#Contact',
+          name: 'Contact',
+        },
+      ],
     },
   ],
 };
 
-export const footerText = [
-  {
-    title: 'youtube',
-    desc: '유튜브에 오시면 더 많은 강의를 볼 수 있습니다.',
-    link: 'https://www.youtube.com/@Webstoryboy',
-  },
-  {
-    title: 'github',
-    desc: '깃헙에 오시면 더 많은 소스를 볼 수 있습니다.',
-    link: 'https://github.com/webstoryboy',
-  },
-  {
-    title: 'blog',
-    desc: '블러그에 오시면 더 많은 정보를 볼 수 있습니다.',
-    link: 'https://webstoryboy.co.kr',
-  },
-  {
-    title: 'gsap',
-    desc: 'GSAP에 오시면 더 많은 강의를 볼 수 있습니다.',
-    link: 'https://www.youtube.com/playlist?list=PL4UVBBIc6giL8-6jvrClimg0cFL-Muqiq',
-  },
-  {
-    title: 'react',
-    desc: '리액트로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-react',
-  },
-  {
-    title: 'vue',
-    desc: '뷰로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-vue',
-  },
-  {
-    title: 'next',
-    desc: '넥스트로 만든 사이트를 같이 만들어 봅니다.',
-    link: 'https://github.com/webstoryboy/port2023-next',
-  },
-];
+export const footerText = {
+  name: 'Park Minjoo',
+  info: '해당 사이트는 Next.js를 기반으로 제작되었습니다.',
+};
