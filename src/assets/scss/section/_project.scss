@@ -94,6 +94,9 @@
         gap: 1rem;
 
         a {
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
           display: block;
           padding: 0.5rem 1.125rem;
           color: var(--black);
@@ -103,9 +106,25 @@
           border: 1px solid var(--black);
           transition: all 0.3s;
 
+          &::before {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: var(--black);
+            transform: translateY(-100%);
+            transition: all 0.3s;
+            content: '';
+          }
+
           &:hover {
             color: var(--white);
-            background-color: var(--black100);
+
+            &::before {
+              transform: translateX(0);
+            }
           }
         }
       }
@@ -142,6 +161,33 @@
           width: 90%;
           margin-left: 5%;
           padding: 5px 0;
+        }
+      }
+
+      .hover-img {
+        @include position-fixed;
+        overflow: hidden;
+        z-index: $hover-level;
+        width: 350px;
+        height: 220px;
+        border-radius: 1rem;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        opacity: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      &:hover {
+        .hover-img {
+          opacity: 1;
+          transform: translateY(15px) scale(1);
         }
       }
     }
