@@ -11,15 +11,12 @@ export function useCursor() {
 
     if (!cursor) return;
 
-    // 기본 위치 세팅 및 덮어쓰기 전역 설정
     gsap.set(cursor, {
       xPercent: -50,
       yPercent: -50,
     });
 
-    //-----------------------------------
-    // Cursor Move (quickTo)
-    //-----------------------------------
+    // 커서 이동
     const xTo = gsap.quickTo(cursor, 'x', { duration: 0.18, ease: 'power3.out' });
     const yTo = gsap.quickTo(cursor, 'y', { duration: 0.18, ease: 'power3.out' });
 

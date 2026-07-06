@@ -17,7 +17,7 @@ const Header = () => {
 
         const tl = gsap.timeline();
 
-        // 점 등장
+        // 점 start
         tl.to(dot, {
           scale: 1,
           opacity: 1,
@@ -25,7 +25,6 @@ const Header = () => {
           ease: 'back.out(3)',
         });
 
-        // 점과 글자가 같이 튕김
         tl.to(
           [link, dot],
           {

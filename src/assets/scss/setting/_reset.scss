@@ -1,3 +1,5 @@
+@use './constants' as *;
+
 // border-box 초기화
 *,
 *:before,
@@ -97,7 +99,7 @@ img {
   position: absolute;
   left: 10px;
   top: -92px;
-  z-index: 100000;
+  z-index: $skip-level;
   font-size: 1rem;
   padding: 10px 30px;
   color: var(--white);
