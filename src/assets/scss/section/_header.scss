@@ -13,6 +13,12 @@
       text-transform: uppercase;
       vertical-align: middle;
     }
+
+    &.contact-active {
+      a {
+        color: var(--white) !important;
+      }
+    }
   }
 
   &__nav {
@@ -124,14 +130,6 @@
           bottom: 6px;
           transition: width 0.3s;
         }
-      }
-    }
-  }
-
-  &.contact-active {
-    h1 {
-      a {
-        color: var(--white);
       }
     }
   }

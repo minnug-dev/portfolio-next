@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { headerNav } from '@/constants';
 import gsap from 'gsap';
+import { scrollToTarget } from '@/utils/scrollTo';
 
 const Header = () => {
+  const headerRef = useRef(null);
+
   useEffect(() => {
     const items = document.querySelectorAll('.header__nav li');
 
@@ -17,7 +20,6 @@ const Header = () => {
 
         const tl = gsap.timeline();
 
-        // 점 start
         tl.to(dot, {
           scale: 1,
           opacity: 1,
@@ -74,8 +76,29 @@ const Header = () => {
     setShow((prevShow) => !prevShow);
   };
 
+  const handleNavClick = (e, url) => {
+    if (!url || !url.startsWith('#') || url === '#') return;
+
+    e.preventDefault();
+
+    const headerHeight = headerRef.current?.offsetHeight || 0;
+
+    if (url === '#contact') {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      window.scrollTo({
+        top: maxScroll,
+        behavior: 'smooth',
+      });
+    } else {
+      scrollToTarget(url, {
+        offsetY: -headerHeight,
+      });
+    }
+  };
+
   return (
-    <header id="header" className="header" role="banner">
+    <header id="header" className="header" role="banner" ref={headerRef}>
       <div className="header__inner">
         <div className="header__logo">
           <h1>
@@ -87,8 +110,8 @@ const Header = () => {
             {headerNav.map((nav, key) => (
               <li key={key}>
                 <span className="dot"></span>
-                <a href={nav.url} data-cursor data-cursor-size="50">
-                  {nav.title}
+                <a href={nav.link} data-cursor data-cursor-size="50" onClick={(e) => handleNavClick(e, nav.link)}>
+                  {nav.name}
                 </a>
               </li>
             ))}
