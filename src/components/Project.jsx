@@ -27,7 +27,7 @@ const Project = () => {
 
       const currentItem = elementAtMouse.closest('.project-item');
 
-      hideAllImages(); //
+      hideAllImages();
 
       if (currentItem) {
         const hoverImg = currentItem.querySelector('.hover-img');
@@ -66,20 +66,14 @@ const Project = () => {
   }, []);
 
   return (
-    <section id="project">
+    <section id="project" className="project">
       <div className="project__inner" ref={containerRef}>
         <h2 className="sub-tit">projects</h2>
         <div className="project-list">
           {projectText.map((project, index) => (
             <article className={`project-item s${index + 1}`} key={index}>
               <div className="hover-img">
-                <Image
-                  src={project.img.src}
-                  alt={project.img.alt}
-                  width={350}
-                  height={220}
-                  style={{ width: 'auto', height: 'auto' }}
-                />
+                <Image src={project.img.src} alt={project.img.alt} style={{ width: 'auto', height: 'auto' }} />
               </div>
               <div className="text">
                 <h3>{project.text.title}</h3>
