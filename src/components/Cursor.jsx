@@ -2,7 +2,7 @@
 
 import { useCursor } from '../utils/useCursor';
 
-export default function Cursor() {
+const Cursor = () => {
   useCursor();
 
   return (
@@ -10,4 +10,6 @@ export default function Cursor() {
       <span className="cursor-text"></span>
     </div>
   );
-}
+};
+
+export default Cursor;

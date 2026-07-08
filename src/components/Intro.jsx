@@ -2,9 +2,9 @@ import React from 'react';
 
 import { introText } from '@/constants';
 
-const intro = () => {
+const Intro = () => {
   return (
-    <section id="intro">
+    <section id="intro" className="intro">
       <div className="intro__inner">
         <h2 className="visually-hidden ">박민주 포트폴리오 인트로</h2>
         <div className="intro__title wrap">
@@ -22,4 +22,4 @@ const intro = () => {
   );
 };
 
-export default intro;
+export default Intro;

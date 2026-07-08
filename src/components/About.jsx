@@ -3,7 +3,7 @@ import React from 'react';
 
 import { aboutText } from '@/constants';
 
-const about = () => {
+const About = () => {
   return (
     <section id="about" className="about">
       <div className="about__inner">
@@ -49,4 +49,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
