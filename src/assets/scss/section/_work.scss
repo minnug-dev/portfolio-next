@@ -22,13 +22,10 @@
     }
 
     .list-item {
+      @include column-flex(start, start);
+      gap: 1.2rem;
+      text-align: left;
       margin-top: 1.5rem;
-
-      a {
-        @include column-flex(start, start);
-        gap: 1.2rem;
-        text-align: left;
-      }
 
       .img-wrap {
         @include flex(center, start);
