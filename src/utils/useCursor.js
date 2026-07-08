@@ -4,6 +4,7 @@ import gsap from 'gsap';
 export function useCursor() {
   const isHoveredRef = useRef(false);
   const currentTargetRef = useRef(null);
+  const mousePosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
@@ -16,16 +17,10 @@ export function useCursor() {
       yPercent: -50,
     });
 
-    // 커서 이동
     const xTo = gsap.quickTo(cursor, 'x', { duration: 0.18, ease: 'power3.out' });
     const yTo = gsap.quickTo(cursor, 'y', { duration: 0.18, ease: 'power3.out' });
 
-    function move(e) {
-      xTo(e.clientX);
-      yTo(e.clientY);
-
-      const target = e.target.closest('[data-cursor]');
-
+    function updateCursorState(target) {
       if (target) {
         if (!isHoveredRef.current || currentTargetRef.current !== target) {
           isHoveredRef.current = true;
@@ -53,8 +48,8 @@ export function useCursor() {
           currentTargetRef.current = null;
 
           const vars = {
-            width: 28,
-            height: 28,
+            width: 20,
+            height: 20,
             duration: 0.45,
             ease: 'power3.out',
             overwrite: 'auto',
@@ -70,18 +65,40 @@ export function useCursor() {
       }
     }
 
+    function move(e) {
+      mousePosRef.current = { x: e.clientX, y: e.clientY };
+
+      xTo(e.clientX);
+      yTo(e.clientY);
+
+      const target = e.target.closest('[data-cursor]');
+      updateCursorState(target);
+    }
+
+    function handleScroll() {
+      const { x, y } = mousePosRef.current;
+      const elementAtPoint = document.elementFromPoint(x, y);
+
+      if (elementAtPoint) {
+        const target = elementAtPoint.closest('[data-cursor]');
+        updateCursorState(target);
+      }
+    }
+
     function mouseLeaveWindow() {
       isHoveredRef.current = false;
       currentTargetRef.current = null;
-      gsap.to(cursor, { width: 28, height: 28, duration: 0.45, overwrite: 'auto' });
+      gsap.to(cursor, { width: 20, height: 20, duration: 0.45, overwrite: 'auto' });
       if (text) text.textContent = '';
     }
 
     window.addEventListener('pointermove', move);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('mouseleave', mouseLeaveWindow);
 
     return () => {
       window.removeEventListener('pointermove', move);
+      window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mouseleave', mouseLeaveWindow);
     };
   }, []);

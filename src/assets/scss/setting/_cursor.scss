@@ -5,7 +5,7 @@
   @include flex(center, center);
   position: fixed;
   left: 0;
-  top: 0;
+  top: -0.25rem;
   z-index: $cursor-level;
   width: 1.25rem;
   height: 1.25rem;
@@ -19,7 +19,7 @@
 
   &-text {
     color: var(--black);
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     font-weight: 600;
     white-space: nowrap;
   }
