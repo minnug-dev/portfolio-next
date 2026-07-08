@@ -1,29 +1,33 @@
 import visual from '../assets/img/visual.png';
-import work01 from '../assets/img/work_chunjae.webp';
-import work02 from '../assets/img/work_meplz_sales.png';
-import work03 from '../assets/img/work_meplz_people.png';
-import work04 from '../assets/img/work_meplz_consoli.png';
-import work05 from '../assets/img/work_meplz_hyundai.png';
-import work06 from '../assets/img/work_meplz_valex.png';
+import workChunjae from '../assets/img/work_chunjae.webp';
+import workMeplzKolon01 from '../assets/img/work_meplz_sales.png';
+import workMeplzKolon02 from '../assets/img/work_meplz_people.png';
+import workMeplzKolon03 from '../assets/img/work_meplz_consoli.png';
+import workMeplzHuyndai from '../assets/img/work_meplz_hyundai.png';
+import workMeplzValex from '../assets/img/work_meplz_valex.png';
+import projectDain from '../assets/img/project_dainreview.jpg';
+import projectJeogi from '../assets/img/project_jeogieottae.jpg';
+import projectHealth from '../assets/img/project_healthcare.jpg';
+import projectFast from '../assets/img/project_fastcampus.jpg';
 import { faGithub, faNotion } from '@fortawesome/free-brands-svg-icons';
 import { faArrowUpRightFromSquare, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 
 export const headerNav = [
   {
-    title: 'About',
-    url: '#about',
+    link: '#about',
+    name: 'About',
   },
   {
-    title: 'Work',
-    url: '#work',
+    link: '#work',
+    name: 'Work',
   },
   {
-    title: 'Projects',
-    url: '#project',
+    link: '#project',
+    name: 'Projects',
   },
   {
-    title: 'Contact',
-    url: '#contact',
+    link: '#contact',
+    name: 'Contact',
   },
 ];
 
@@ -107,7 +111,7 @@ export const aboutText = {
 
 export const workText = [
   {
-    img: work01,
+    img: workChunjae,
     imgDesc: '천재교과서 디자인 화면',
     link: 'https://www.notion.so/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
     title: '천재교과서',
@@ -115,35 +119,35 @@ export const workText = [
     tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma', 'Photoshop'],
   },
   {
-    img: work02,
+    img: workMeplzKolon01,
     imgDesc: '코오롱베니트 세일즈웍스 디자인 화면',
     title: '코오롱베니트 - SalesWorX(세일즈웍스) 업무관리 플랫폼',
     desc: '코오롱베니트의 데이터 기반의 영업 전략을 수립할 수 있게 해주는 자체 개발 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
     tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
   },
   {
-    img: work03,
+    img: workMeplzKolon02,
     imgDesc: '코오롱베니트 피플웍스 디자인 화면',
     title: '코오롱베니트 - PeopleWorX(피플웍스) 인사관리 플랫폼',
     desc: '코오롱베니트의 조직 및 인사 정보를 통합 관리하는 인사관리 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
     tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
   },
   {
-    img: work04,
+    img: workMeplzKolon03,
     imgDesc: '코오롱베니트 콘솔리웍스 디자인 화면',
     title: '코오롱베니트 - ConsoliWorX(콘솔리웍스) 연결회계 플랫폼',
     desc: '코오롱베니트의 연결 재무제표 및 회계 데이터를 통합 관리하는 연결회계 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
     tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
   },
   {
-    img: work05,
+    img: workMeplzHuyndai,
     imgDesc: '현대 M/H 관리 시스템 디자인 화면',
     title: '현대 M/H 관리 시스템',
     desc: '개인별 근무시간과 일정을 효율적으로 관리할 수 있도록 지원하는 인사 관리 시스템 리뉴얼 프로젝트입니다.',
     tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma'],
   },
   {
-    img: work06,
+    img: workMeplzValex,
     imgDesc: '발렉스서비스 PRISM 인사 시스템 디자인 화면',
     title: '발렉스서비스 PRISM 인사 시스템 구축 ',
     desc: '임직원의 로그인 및 인증 절차를 모바일 환경에서도 편리하게 이용할 수 있도록 구축한 인사관리 시스템의 모바일 웹 신규 프로젝트입니다.',
@@ -177,8 +181,8 @@ export const projectText = [
       stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
     },
     img: {
-      src: work01,
-      alt: '다인리뷰 화면',
+      src: projectDain,
+      alt: '다인리뷰 프로젝트 화면',
     },
   },
   {
@@ -206,8 +210,8 @@ export const projectText = [
       stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
     },
     img: {
-      src: work02,
-      alt: '미니 프로젝트 화면',
+      src: projectJeogi,
+      alt: '저기어때 숙박 예약 프로젝트 화면',
     },
   },
   {
@@ -235,8 +239,8 @@ export const projectText = [
       stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
     },
     img: {
-      src: work03,
-      alt: '토이 프로젝트 2 화면',
+      src: projectHealth,
+      alt: '헬스 캘린더 프로젝트 화면',
     },
   },
   {
@@ -264,8 +268,8 @@ export const projectText = [
       stack: 'React, Vite, Firebase, SCSS, Figma',
     },
     img: {
-      src: work04,
-      alt: '토이 프로젝트 1 화면',
+      src: projectFast,
+      alt: '패스트캠퍼스 인트라넷 프로젝트 화면',
     },
   },
 ];
