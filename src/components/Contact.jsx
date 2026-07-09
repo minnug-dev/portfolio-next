@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { contactText } from '@/constants';
+import { scrollToTarget } from '@/utils/scrollTo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +16,6 @@ const Contact = () => {
         trigger: triggerRef.current,
         start: 'bottom bottom',
         end: 'bottom top',
-        markers: true,
         toggleClass: {
           targets: '.header__logo',
           className: 'contact-active',
@@ -25,6 +25,28 @@ const Contact = () => {
 
     return () => ctx.revert();
   }, []);
+
+  const handleLinkClick = (e, url) => {
+    if (!url || !url.startsWith('#') || url === '#') return;
+
+    e.preventDefault();
+
+    const headerEl = document.getElementById('header');
+    const headerHeight = headerEl?.offsetHeight || 0;
+
+    if (url === '#contact') {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+      window.scrollTo({
+        top: maxScroll,
+        behavior: 'smooth',
+      });
+    } else {
+      scrollToTarget(url, {
+        offsetY: -headerHeight,
+      });
+    }
+  };
 
   return (
     <>
@@ -40,13 +62,14 @@ const Contact = () => {
             <div className="info">
               {contactText.contact.map((link, index) => (
                 <div key={index} className="menu">
-                  <h3>{link.title}</h3>
+                  <h3>{link.tit}</h3>
                   {link.links.map((item, idx) => (
                     <a
                       key={idx}
                       href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={item.link.startsWith('#') ? undefined : '_blank'}
+                      rel={item.link.startsWith('#') ? undefined : 'noopener noreferrer'}
+                      onClick={(e) => handleLinkClick(e, item.link)}
                       data-cursor
                       data-cursor-size="50"
                     >
