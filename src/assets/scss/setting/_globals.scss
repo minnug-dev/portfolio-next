@@ -1,5 +1,9 @@
 @use './constants' as *;
 
+* {
+  cursor: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -19,7 +23,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
+  color: var(--black100);
   letter-spacing: -0.01em;
+  cursor: none;
 
   @media (max-width: 800px) {
     font-size: 14px;
@@ -28,14 +34,13 @@ body {
 
   ::selection {
     background-color: var(--yellow);
-    color: var(--black);
+    color: var(--black100);
   }
 }
 
 .sub-tit {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--black200);
   text-transform: uppercase;
 }
 
@@ -44,8 +49,4 @@ body {
   padding-bottom: 5rem;
   margin-bottom: 100vh;
   background-color: var(--beige);
-}
-
-a {
-  cursor: pointer;
 }

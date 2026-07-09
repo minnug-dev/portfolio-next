@@ -1,14 +1,16 @@
 // z-index 레벨
 $skip-level: 100;
 $cursor-level: 30;
-$nav-level: 20;
-$logo-level: 20;
+$header-level: 20;
 $main-level: 10;
 $hover-level: 10;
 
-// 레이아웃
-$gap-inner: 3rem;
-$medium-wide: 68.75rem;
+// 간격
+$gap-inner: 4rem;
+$sec-inner: 8em;
+
+// 너비
+$medium-wide: 75rem;
 $large-wide: 100rem;
 
 // 미디어쿼리 분기점

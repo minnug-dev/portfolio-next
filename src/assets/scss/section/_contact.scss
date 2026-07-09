@@ -7,7 +7,7 @@
   right: 0;
   z-index: -1;
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--black100);
 
   &__inner {
     @include column-flex(end, start);
