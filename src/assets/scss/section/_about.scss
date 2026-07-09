@@ -1,12 +1,12 @@
 @use '../setting' as *;
 
 .about {
-  padding-top: 15rem;
+  padding-top: $sec-inner;
+
   &__inner {
-    max-width: $large-wide;
+    max-width: $medium-wide;
     width: 100%;
     margin: 0 auto;
-    padding: 0 2rem 7.5rem;
 
     .sub-tit {
       padding-bottom: 2rem;
@@ -16,23 +16,27 @@
       @include flex(between);
 
       .img-wrap {
-        max-width: 50rem;
-        width: 100%;
-        margin: 0 auto;
-        margin-right: 4rem;
+        width: calc(49% - 4rem);
+        margin-right: $gap-inner;
 
         img {
           text-align: center;
         }
       }
 
-      .txt-wrap {
-        .desc {
+      .text-wrap {
+        width: 51%;
+
+        .info {
           p {
             padding-bottom: 1.5rem;
-            font-size: 20px;
-            color: var(--black200);
+            font-size: 1.25rem;
+            font-weight: 400;
             word-break: keep-all;
+
+            &:last-child {
+              padding-bottom: 0;
+            }
           }
         }
       }
@@ -41,8 +45,8 @@
     .history-list {
       @include flex(between, start);
       flex-wrap: wrap;
-      gap: 1.875rem;
-      margin-top: 3rem;
+      gap: 1rem;
+      margin-top: $gap-inner;
 
       li {
         width: calc((100% - 1.875rem) / 2);
@@ -50,7 +54,11 @@
         h3 {
           margin-bottom: 1.25rem;
           font-weight: 600;
-          color: var(--black300);
+          color: var(--black200);
+
+          .icon {
+            padding-right: 0.25rem;
+          }
         }
 
         .item {
@@ -73,18 +81,59 @@
               border-radius: 50px;
             }
 
-            .txt-wrap {
+            .text-wrap {
               padding-left: 1rem;
+              font-size: 1.125rem;
 
               .name {
                 font-size: 1.125rem;
                 font-weight: 600;
-                margin-bottom: 0.125rem;
+                margin-bottom: 0.5rem;
               }
 
               .desc {
+                font-size: 1.125rem;
                 color: var(--black300);
                 word-break: keep-all;
+              }
+
+              .link {
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+                padding: 0.5rem 1.125rem;
+                margin-top: 0.625rem;
+                font-size: 1rem;
+                border: 1px solid var(--black300);
+                border-radius: 50px;
+                transition: all 0.3s;
+
+                .icon {
+                  padding-right: 0.25rem;
+                  font-size: 1rem;
+                }
+
+                &::before {
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  z-index: -1;
+                  background-color: var(--black100);
+                  transform: translateY(-100%);
+                  transition: all 0.3s;
+                  content: '';
+                }
+
+                &:hover {
+                  color: var(--white);
+
+                  &::before {
+                    transform: translateX(0);
+                  }
+                }
               }
             }
           }
