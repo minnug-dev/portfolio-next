@@ -1,11 +1,11 @@
 @use '../setting' as *;
 
 .work {
+  padding-top: $sec-inner;
+
   &__inner {
     max-width: $large-wide;
     margin: 0 auto;
-    padding: 2rem;
-    padding-bottom: 7.5rem;
 
     .sub-tit {
       text-align: center;
@@ -25,7 +25,12 @@
       @include column-flex(start, start);
       gap: 1.2rem;
       text-align: left;
-      margin-top: 1.5rem;
+      padding-bottom: 1rem;
+      margin-top: 2rem;
+
+      a {
+        width: 100%;
+      }
 
       .img-wrap {
         @include flex(center, start);
@@ -56,7 +61,7 @@
           display: inline-block;
           padding: 0.2rem 1rem;
           margin-right: 0.5rem;
-          color: var(--black100);
+          color: var(--black200);
           font-weight: 500;
           border-radius: 50px;
           background-color: var(--white);
