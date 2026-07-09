@@ -16,7 +16,7 @@ const Work = () => {
                   <Image src={work.img} alt={work.imgDesc} style={{ width: '100%', height: 'auto' }} />
                 </div>
               </a>
-              <h3>{work.title}</h3>
+              <h3>{work.tit}</h3>
               <p>{work.desc}</p>
               <div className="tool-wrap">
                 {work.tool.map((tool, index) => (

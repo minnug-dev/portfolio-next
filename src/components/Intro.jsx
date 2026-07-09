@@ -13,7 +13,7 @@ const Intro = () => {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: 'body',
-        start: '150',
+        start: '500',
         id: 'intro-scroll-indicator',
         onEnter: () => {
           gsap.to(scrollRef.current, {

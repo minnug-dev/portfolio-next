@@ -30,7 +30,7 @@ export function useCursor() {
           const vars = {
             width: size,
             height: size,
-            duration: 0.25,
+            duration: 0.3,
             ease: 'power3.out',
             overwrite: 'auto',
           };
@@ -50,7 +50,7 @@ export function useCursor() {
           const vars = {
             width: 20,
             height: 20,
-            duration: 0.45,
+            duration: 0.4,
             ease: 'power3.out',
             overwrite: 'auto',
           };
@@ -88,7 +88,7 @@ export function useCursor() {
     function mouseLeaveWindow() {
       isHoveredRef.current = false;
       currentTargetRef.current = null;
-      gsap.to(cursor, { width: 20, height: 20, duration: 0.45, overwrite: 'auto' });
+      gsap.to(cursor, { width: 20, height: 20, duration: 0.4, overwrite: 'auto' });
       if (text) text.textContent = '';
     }
 

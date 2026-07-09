@@ -68,15 +68,15 @@ const Project = () => {
   return (
     <section id="project" className="project">
       <div className="project__inner" ref={containerRef}>
-        <h2 className="sub-tit">projects</h2>
+        <h2 className="sub-tit">project</h2>
         <div className="project-list">
           {projectText.map((project, index) => (
             <article className={`project-item s${index + 1}`} key={index}>
               <div className="hover-img">
-                <Image src={project.img.src} alt={project.img.alt} style={{ width: 'auto', height: 'auto' }} />
+                <Image src={project.img.src} alt={project.img.alt} style={{ width: '100%', height: '100%' }} />
               </div>
               <div className="text">
-                <h3>{project.text.title}</h3>
+                <h3>{project.text.tit}</h3>
                 <h4>{project.text.subTitle}</h4>
                 <p>{project.text.desc}</p>
               </div>
