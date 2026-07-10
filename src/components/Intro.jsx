@@ -16,6 +16,10 @@ const Intro = () => {
         clipPath: 'inset(0 100% 0 0)',
       });
 
+      gsap.set(scrollRef.current, {
+        opacity: 0,
+      });
+
       const tl = gsap.timeline({
         defaults: { ease: 'power3.easeInOut' },
       });
@@ -32,6 +36,13 @@ const Intro = () => {
         },
         '-=3.5',
       );
+
+      gsap.to(scrollRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power3.easeInOut',
+        delay: 2.5,
+      });
 
       ScrollTrigger.create({
         trigger: 'body',
