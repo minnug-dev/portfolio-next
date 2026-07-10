@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { headerNav } from '@/constants';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollToTarget } from '@/utils/scrollTo';
+import { useNav } from '@/contexts/NavContext';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
   const headerRef = useRef(null);
+  const { activeLink, setActiveLink } = useNav();
 
+  // hover 인터랙션
   useEffect(() => {
     const items = document.querySelectorAll('.header__nav li');
 
@@ -49,6 +55,8 @@ const Header = () => {
       };
 
       const leave = () => {
+        if (item.classList.contains('active')) return;
+
         gsap.to(dot, {
           scale: 0,
           opacity: 0,
@@ -70,6 +78,51 @@ const Header = () => {
     };
   }, []);
 
+  // active 인터랙션 (점 표시/숨김)
+  useEffect(() => {
+    const items = document.querySelectorAll('.header__nav li');
+
+    items.forEach((item) => {
+      const dot = item.querySelector('.dot');
+      const a = item.querySelector('a');
+      if (!dot || !a) return;
+
+      const isActive = a.getAttribute('href') === activeLink;
+
+      gsap.to(dot, {
+        scale: isActive ? 1 : 0,
+        opacity: isActive ? 1 : 0,
+        duration: 0.15,
+        ease: isActive ? 'back.out(3)' : 'power1.out',
+      });
+    });
+  }, [activeLink]);
+
+  // active 업데이트
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const spyTargets = headerNav.filter((nav) => nav.link && nav.link.startsWith('#') && nav.link !== '#contact');
+
+      spyTargets.forEach((nav, index) => {
+        const target = document.querySelector(nav.link);
+        if (!target) return;
+
+        const isFirst = index === 0;
+
+        ScrollTrigger.create({
+          trigger: target,
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => setActiveLink(nav.link),
+          onEnterBack: () => setActiveLink(nav.link),
+          onLeaveBack: isFirst ? () => setActiveLink(null) : undefined,
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, [setActiveLink]);
+
   const [show, setShow] = useState(false);
 
   const toggleMenu = () => {
@@ -77,6 +130,7 @@ const Header = () => {
   };
 
   const handleNavClick = (e, url) => {
+    setActiveLink(url);
     if (!url || !url.startsWith('#') || url === '#') return;
 
     e.preventDefault();
@@ -108,9 +162,9 @@ const Header = () => {
         <nav className={`header__nav ${show ? 'show' : ''}`} role="navigation" aria-label="메인 메뉴">
           <ul>
             {headerNav.map((nav, key) => (
-              <li key={key}>
+              <li key={key} className={activeLink === nav.link ? 'active' : ''}>
                 <span className="dot"></span>
-                <a href={nav.link} data-cursor data-cursor-size="50" onClick={(e) => handleNavClick(e, nav.link)}>
+                <a href={nav.link} data-cursor data-cursor-size="50" onClick={(e) => handleNavClick(e, nav.link, key)}>
                   {nav.name}
                 </a>
               </li>

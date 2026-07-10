@@ -61,13 +61,13 @@
           font-size: 1.25rem;
 
           &::after {
-            @include position-center;
-            top: auto;
+            position: absolute;
+            left: 0;
             bottom: 0;
             width: 0;
             height: 1px;
             background-color: var(--white);
-            transition: width 0.3s;
+            transition: width 0.3s ease-in-out;
             content: '';
           }
 

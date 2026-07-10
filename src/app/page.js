@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { NavProvider } from '@/contexts/NavContext';
 import Header from '@/components/Header';
 import Skip from '@/components/Skip';
 import Intro from '@/components/Intro';
@@ -14,15 +15,17 @@ export default function Home() {
   return (
     <>
       <Skip />
-      <Header />
-      <main className="main" role="main">
-        <Intro />
-        <About />
-        <Work />
-        <Project />
-        <Contact />
-      </main>
-      <Footer />
+      <NavProvider>
+        <Header />
+        <main className="main" role="main">
+          <Intro />
+          <About />
+          <Work />
+          <Project />
+          <Contact />
+        </main>
+        <Footer />
+      </NavProvider>
     </>
   );
 }

@@ -3,12 +3,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { contactText } from '@/constants';
 import { scrollToTarget } from '@/utils/scrollTo';
+import { useNav } from '@/contexts/NavContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const contactRef = useRef(null);
   const triggerRef = useRef(null);
+  const { setActiveLink } = useNav();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -21,6 +23,14 @@ const Contact = () => {
           className: 'contact-active',
         },
       });
+
+      ScrollTrigger.create({
+        trigger: triggerRef.current,
+        start: 'bottom bottom',
+        end: 'bottom top',
+        onEnter: () => setActiveLink('#contact'),
+        onEnterBack: () => setActiveLink('#contact'),
+      });
     });
 
     return () => ctx.revert();
@@ -30,6 +40,7 @@ const Contact = () => {
     if (!url || !url.startsWith('#') || url === '#') return;
 
     e.preventDefault();
+    setActiveLink(url);
 
     const headerEl = document.getElementById('header');
     const headerHeight = headerEl?.offsetHeight || 0;
