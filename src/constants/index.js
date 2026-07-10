@@ -10,13 +10,7 @@ import projectJeogi from '../assets/img/project_jeogieottae.png';
 import projectHealth from '../assets/img/project_healthcare.png';
 import projectFast from '../assets/img/project_fastcampus.png';
 import { faGithub, faNotion } from '@fortawesome/free-brands-svg-icons';
-import {
-  faBriefcase,
-  faGraduationCap,
-  faMedal,
-  faArrowUpRightFromSquare,
-  faScrewdriverWrench,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faGraduationCap, faMedal, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 export const headerNav = [
   {
@@ -38,7 +32,7 @@ export const headerNav = [
 ];
 
 export const introText = {
-  text: 'HELLO THERE!👋🏻',
+  text: 'HELLO THERE!',
   tit: ['I’m Minjoo Park.', 'Welcome to', 'my web portfolio!'],
 };
 
@@ -191,15 +185,19 @@ export const projectText = [
         icon: faGithub,
       },
       {
+        text: 'View',
+        href: 'https://final-frontend-beta.vercel.app/',
+        icon: faArrowUpRightFromSquare,
+      },
+      {
         text: 'Project Docs',
         href: 'https://app.notion.com/p/nugmin/6-_-10e9975be804806981ddd6c6d84af993?source=copy_link',
         icon: faNotion,
       },
     ],
     info: {
-      icon: faScrewdriverWrench,
       name: '기업 연계 프로젝트',
-      date: '개발 기간: 2024.08.12-2024.09.20',
+      date: '2024.08.12-2024.09.20',
       stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
     },
     img: {
@@ -226,9 +224,8 @@ export const projectText = [
       },
     ],
     info: {
-      icon: faScrewdriverWrench,
       name: '미니 프로젝트',
-      date: '개발 기간: 2024.06.17-2024.07.07',
+      date: '2024.06.17-2024.07.07',
       stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
     },
     img: {
@@ -255,9 +252,8 @@ export const projectText = [
       },
     ],
     info: {
-      icon: faScrewdriverWrench,
       name: '토이 프로젝트 2',
-      date: '개발 기간: 2024.05.27-2024.06.08',
+      date: '2024.05.27-2024.06.08',
       stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
     },
     img: {
@@ -284,9 +280,8 @@ export const projectText = [
       },
     ],
     info: {
-      icon: faScrewdriverWrench,
       name: '토이 프로젝트 1',
-      date: '개발 기간: 2024.04.08-2024.04.21',
+      date: '2024.04.08-2024.04.21',
       stack: 'React, Vite, Firebase, SCSS, Figma',
     },
     img: {
@@ -345,6 +340,6 @@ export const contactText = {
 };
 
 export const footerText = {
-  name: 'Park Minjoo',
-  info: '해당 사이트는 Next.js를 기반으로 제작되었습니다.',
+  name: 'Park Minjoo.  All rights reserved.',
+  info: 'Built with Next.js',
 };
