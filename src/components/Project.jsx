@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { projectText } from '@/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 
 const Project = () => {
   const containerRef = useRef(null);
@@ -97,9 +98,12 @@ const Project = () => {
               </div>
               <div className="info">
                 <span className="name">{project.info.name}</span>
-                <span className="date">{project.info.date}</span>
+                <span className="date">
+                  <FontAwesomeIcon icon={faCalendar} className="icon" />
+                  {project.info.date}
+                </span>
                 <span className="stack">
-                  <FontAwesomeIcon icon={project.info.icon} className="icon" />
+                  <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
                   {project.info.stack}
                 </span>
               </div>
