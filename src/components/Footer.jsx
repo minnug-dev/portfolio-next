@@ -8,10 +8,10 @@ const Footer = () => {
   return (
     <footer id="footer" className="footer" role="contentinfo">
       <div className="footer__inner">
-        <p className="copy">
-          &copy; {currentYear} {footerText.name}. All rights reserved.
-        </p>
         <p>{footerText.info}</p>
+        <p className="copy">
+          &copy; {currentYear} {footerText.name}
+        </p>
       </div>
     </footer>
   );
