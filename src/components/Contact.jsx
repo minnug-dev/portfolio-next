@@ -67,7 +67,7 @@ const Contact = () => {
         <div className="contact__inner">
           <div className="contact__cont">
             <div>
-              <h2 className="sub-tit">Contact</h2>
+              <h2 className="sub-tit">{contactText.stit}</h2>
               <span className="name">{contactText.name}</span>
             </div>
             <div className="info">

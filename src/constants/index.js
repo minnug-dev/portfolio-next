@@ -120,178 +120,185 @@ export const aboutText = {
   ],
 };
 
-export const workText = [
-  {
-    link: 'https://www.notion.so/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
-    img: workChunjae,
-    imgDesc: '천재교과서 디자인 화면',
-    tit: '천재교과서',
-    desc: '자사 대표 교육 플랫폼인 밀크T(milkT)의 웹, 모바일, 태블릿 서비스 구축 및 운영 프로젝트에 참여했습니다.',
-    tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma', 'Photoshop'],
-  },
-  {
-    link: 'https://app.notion.com/p/minnug/SalesWorX-829c45f20e5a43678e23c705cc32b384?source=copy_link',
-    img: workMeplzKolon01,
-    imgDesc: '코오롱베니트 세일즈웍스 디자인 화면',
-    tit: '코오롱베니트 - SalesWorX(세일즈웍스) 업무관리 플랫폼',
-    desc: '코오롱베니트의 데이터 기반의 영업 전략을 수립할 수 있게 해주는 자체 개발 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
-    tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
-  },
-  {
-    link: 'https://app.notion.com/p/minnug/PeopleWorX-e9202bde8a714ec7ace77305338144ac?source=copy_link',
-    img: workMeplzKolon02,
-    imgDesc: '코오롱베니트 피플웍스 디자인 화면',
-    tit: '코오롱베니트 - PeopleWorX(피플웍스) 인사관리 플랫폼',
-    desc: '코오롱베니트의 조직 및 인사 정보를 통합 관리하는 인사관리 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
-    tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
-  },
-  {
-    link: 'https://app.notion.com/p/minnug/ConsoliWorX-ae2f2c3396074e45a675d6d9f7449fce?source=copy_link',
-    img: workMeplzKolon03,
-    imgDesc: '코오롱베니트 콘솔리웍스 디자인 화면',
-    tit: '코오롱베니트 - ConsoliWorX(콘솔리웍스) 연결회계 플랫폼',
-    desc: '코오롱베니트의 연결 재무제표 및 회계 데이터를 통합 관리하는 연결회계 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
-    tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
-  },
-  {
-    link: 'https://app.notion.com/p/minnug/M-H-d80e6a61c5c24954b413924810dca66a?source=copy_link',
-    img: workMeplzHuyndai,
-    imgDesc: '현대 M/H 관리 시스템 디자인 화면',
-    tit: '현대 M/H 관리 시스템',
-    desc: '개인별 근무시간과 일정을 효율적으로 관리할 수 있도록 지원하는 인사 관리 시스템 리뉴얼 프로젝트입니다.',
-    tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma'],
-  },
-  {
-    link: 'https://app.notion.com/p/minnug/PRISM-Mobile-Web-App-599cb872e197480d81fd9a7c821820d1?source=copy_link',
-    img: workMeplzValex,
-    imgDesc: '발렉스서비스 PRISM 인사 시스템 디자인 화면',
-    tit: '발렉스서비스 PRISM 인사 시스템 구축 ',
-    desc: '임직원의 로그인 및 인증 절차를 모바일 환경에서도 편리하게 이용할 수 있도록 구축한 인사관리 시스템의 모바일 웹 신규 프로젝트입니다.',
-    tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma'],
-  },
-];
+export const workText = {
+  stit: 'work',
+  list: [
+    {
+      link: 'https://www.notion.so/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
+      img: workChunjae,
+      imgDesc: '천재교과서 디자인 화면',
+      tit: '천재교과서',
+      desc: '자사 대표 교육 플랫폼인 밀크T(milkT)의 웹, 모바일, 태블릿 서비스 구축 및 운영 프로젝트에 참여했습니다.',
+      tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma', 'Photoshop'],
+    },
+    {
+      link: 'https://app.notion.com/p/minnug/SalesWorX-829c45f20e5a43678e23c705cc32b384?source=copy_link',
+      img: workMeplzKolon01,
+      imgDesc: '코오롱베니트 세일즈웍스 디자인 화면',
+      tit: '코오롱베니트 - SalesWorX(세일즈웍스) 업무관리 플랫폼',
+      desc: '코오롱베니트의 데이터 기반의 영업 전략을 수립할 수 있게 해주는 자체 개발 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
+      tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
+    },
+    {
+      link: 'https://app.notion.com/p/minnug/PeopleWorX-e9202bde8a714ec7ace77305338144ac?source=copy_link',
+      img: workMeplzKolon02,
+      imgDesc: '코오롱베니트 피플웍스 디자인 화면',
+      tit: '코오롱베니트 - PeopleWorX(피플웍스) 인사관리 플랫폼',
+      desc: '코오롱베니트의 조직 및 인사 정보를 통합 관리하는 인사관리 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
+      tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
+    },
+    {
+      link: 'https://app.notion.com/p/minnug/ConsoliWorX-ae2f2c3396074e45a675d6d9f7449fce?source=copy_link',
+      img: workMeplzKolon03,
+      imgDesc: '코오롱베니트 콘솔리웍스 디자인 화면',
+      tit: '코오롱베니트 - ConsoliWorX(콘솔리웍스) 연결회계 플랫폼',
+      desc: '코오롱베니트의 연결 재무제표 및 회계 데이터를 통합 관리하는 연결회계 플랫폼으로 Vue.js 기반 환경에서 진행된 리뉴얼 프로젝트입니다.',
+      tool: ['Vue.js', 'SCSS', 'Zeplin', 'Sourcetree'],
+    },
+    {
+      link: 'https://app.notion.com/p/minnug/M-H-d80e6a61c5c24954b413924810dca66a?source=copy_link',
+      img: workMeplzHuyndai,
+      imgDesc: '현대 M/H 관리 시스템 디자인 화면',
+      tit: '현대 M/H 관리 시스템',
+      desc: '개인별 근무시간과 일정을 효율적으로 관리할 수 있도록 지원하는 인사 관리 시스템 리뉴얼 프로젝트입니다.',
+      tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma'],
+    },
+    {
+      link: 'https://app.notion.com/p/minnug/PRISM-Mobile-Web-App-599cb872e197480d81fd9a7c821820d1?source=copy_link',
+      img: workMeplzValex,
+      imgDesc: '발렉스서비스 PRISM 인사 시스템 디자인 화면',
+      tit: '발렉스서비스 PRISM 인사 시스템 구축 ',
+      desc: '임직원의 로그인 및 인증 절차를 모바일 환경에서도 편리하게 이용할 수 있도록 구축한 인사관리 시스템의 모바일 웹 신규 프로젝트입니다.',
+      tool: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Figma'],
+    },
+  ],
+};
 
-export const projectText = [
-  {
-    text: {
-      tit: '다인리뷰',
-      subTitle: '사업주와 인플루언서 상생 체험단 플랫폼',
-      desc: 'PM, UX/UI, FE, BE 팀과 협업하여 기업이 원하는 서비스를 구현한 기업 연계 프로젝트입니다.',
-    },
-    buttons: [
-      {
-        text: 'Github',
-        href: 'https://github.com/minnug-dev/final_project',
-        icon: faGithub,
+export const projectText = {
+  stit: 'team project',
+  list: [
+    {
+      text: {
+        tit: '다인리뷰',
+        subTitle: '사업주와 인플루언서 상생 체험단 플랫폼',
+        desc: 'PM, UX/UI, FE, BE 팀과 협업하여 기업이 원하는 서비스를 구현한 기업 연계 프로젝트입니다.',
       },
-      {
-        text: 'View',
-        href: 'https://final-frontend-beta.vercel.app/',
-        icon: faArrowUpRightFromSquare,
+      buttons: [
+        {
+          text: 'Github',
+          href: 'https://github.com/minnug-dev/final_project',
+          icon: faGithub,
+        },
+        {
+          text: 'View',
+          href: 'https://final-frontend-beta.vercel.app/',
+          icon: faArrowUpRightFromSquare,
+        },
+        {
+          text: 'Project Docs',
+          href: 'https://app.notion.com/p/nugmin/6-_-10e9975be804806981ddd6c6d84af993?source=copy_link',
+          icon: faNotion,
+        },
+      ],
+      info: {
+        name: '기업 프로젝트',
+        date: '2024.08.12-2024.09.20',
+        stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
       },
-      {
-        text: 'Project Docs',
-        href: 'https://app.notion.com/p/nugmin/6-_-10e9975be804806981ddd6c6d84af993?source=copy_link',
-        icon: faNotion,
+      img: {
+        src: projectDain,
+        alt: '다인리뷰 프로젝트 화면',
       },
-    ],
-    info: {
-      name: '기업 연계 프로젝트',
-      date: '2024.08.12-2024.09.20',
-      stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
     },
-    img: {
-      src: projectDain,
-      alt: '다인리뷰 프로젝트 화면',
-    },
-  },
-  {
-    text: {
-      tit: '저기어때',
-      subTitle: '숙박 예약 사이트',
-      desc: 'BE 팀과 협업하여 제작한 숙박 검색 및 예약 서비스를 제공하는 숙박 예약 사이트입니다.',
-    },
-    buttons: [
-      {
-        text: 'Github',
-        href: 'https://github.com/minnug-dev/jeogieottae_mini',
-        icon: faGithub,
+    {
+      text: {
+        tit: '저기어때',
+        subTitle: '숙박 예약 사이트',
+        desc: 'BE 팀과 협업하여 제작한 숙박 검색 및 예약 서비스를 제공하는 숙박 예약 사이트입니다.',
       },
-      {
-        text: 'View',
-        href: 'https://your-trip-pied.vercel.app/',
-        icon: faArrowUpRightFromSquare,
+      buttons: [
+        {
+          text: 'Github',
+          href: 'https://github.com/minnug-dev/jeogieottae_mini',
+          icon: faGithub,
+        },
+        {
+          text: 'View',
+          href: 'https://your-trip-pied.vercel.app/',
+          icon: faArrowUpRightFromSquare,
+        },
+      ],
+      info: {
+        name: '미니 프로젝트',
+        date: '2024.06.17-2024.07.07',
+        stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
       },
-    ],
-    info: {
-      name: '미니 프로젝트',
-      date: '2024.06.17-2024.07.07',
-      stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
-    },
-    img: {
-      src: projectJeogi,
-      alt: '저기어때 숙박 예약 프로젝트 화면',
-    },
-  },
-  {
-    text: {
-      tit: '헬스 캘린더',
-      subTitle: '개인 운동 정보 기록 플랫폼',
-      desc: '캘린더를 통해 PT 수업 받은 내용을 기록하며 개인 운동 정보를 기록하고 관리할 수 있는 플랫폼입니다.',
-    },
-    buttons: [
-      {
-        text: 'Github',
-        href: 'https://github.com/minnug-dev/health-calendar_toy2',
-        icon: faGithub,
+      img: {
+        src: projectJeogi,
+        alt: '저기어때 숙박 예약 프로젝트 화면',
       },
-      {
-        text: 'View',
-        href: 'https://health-two-silk.vercel.app/',
-        icon: faArrowUpRightFromSquare,
+    },
+    {
+      text: {
+        tit: '헬스 캘린더',
+        subTitle: '개인 운동 정보 기록 플랫폼',
+        desc: '캘린더를 통해 PT 수업 받은 내용을 기록하며 개인 운동 정보를 기록하고 관리할 수 있는 플랫폼입니다.',
       },
-    ],
-    info: {
-      name: '토이 프로젝트 2',
-      date: '2024.05.27-2024.06.08',
-      stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
-    },
-    img: {
-      src: projectHealth,
-      alt: '헬스 캘린더 프로젝트 화면',
-    },
-  },
-  {
-    text: {
-      tit: '패스트캠퍼스 인트라넷',
-      subTitle: '수강생들을 위한 패스트캠퍼스 인트라넷',
-      desc: '패스트캠퍼스 학원 수강생들이 편리하게 사용할 수 있게 제작한 인트라넷입니다.',
-    },
-    buttons: [
-      {
-        text: 'Github',
-        href: 'https://github.com/minnug-dev/intranet-app_toy1',
-        icon: faGithub,
+      buttons: [
+        {
+          text: 'Github',
+          href: 'https://github.com/minnug-dev/health-calendar_toy2',
+          icon: faGithub,
+        },
+        {
+          text: 'View',
+          href: 'https://health-two-silk.vercel.app/',
+          icon: faArrowUpRightFromSquare,
+        },
+      ],
+      info: {
+        name: '토이 프로젝트 2',
+        date: '2024.05.27-2024.06.08',
+        stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
       },
-      {
-        text: 'View',
-        href: 'https://master--fastcampus-intrenet.netlify.app/',
-        icon: faArrowUpRightFromSquare,
+      img: {
+        src: projectHealth,
+        alt: '헬스 캘린더 프로젝트 화면',
       },
-    ],
-    info: {
-      name: '토이 프로젝트 1',
-      date: '2024.04.08-2024.04.21',
-      stack: 'React, Vite, Firebase, SCSS, Figma',
     },
-    img: {
-      src: projectFast,
-      alt: '패스트캠퍼스 인트라넷 프로젝트 화면',
+    {
+      text: {
+        tit: '패스트캠퍼스 인트라넷',
+        subTitle: '수강생들을 위한 패스트캠퍼스 인트라넷',
+        desc: '패스트캠퍼스 학원 수강생들이 편리하게 사용할 수 있게 제작한 인트라넷입니다.',
+      },
+      buttons: [
+        {
+          text: 'Github',
+          href: 'https://github.com/minnug-dev/intranet-app_toy1',
+          icon: faGithub,
+        },
+        {
+          text: 'View',
+          href: 'https://master--fastcampus-intrenet.netlify.app/',
+          icon: faArrowUpRightFromSquare,
+        },
+      ],
+      info: {
+        name: '토이 프로젝트 1',
+        date: '2024.04.08-2024.04.21',
+        stack: 'React, Vite, Firebase, SCSS, Figma',
+      },
+      img: {
+        src: projectFast,
+        alt: '패스트캠퍼스 인트라넷 프로젝트 화면',
+      },
     },
-  },
-];
+  ],
+};
 
 export const contactText = {
+  stit: 'contact',
   name: 'Minjoo',
   contact: [
     {
