@@ -16,7 +16,7 @@
       @include flex(between, center);
 
       .img-wrap {
-        width: calc(36% - $gap-inner);
+        width: calc(42% - $gap-inner);
         margin-right: $gap-inner;
 
         img {
@@ -25,7 +25,7 @@
       }
 
       .text-wrap {
-        width: 64%;
+        width: 58%;
 
         .info {
           p {
