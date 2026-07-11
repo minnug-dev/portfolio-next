@@ -12,6 +12,18 @@ const Project = () => {
     const container = containerRef.current;
     if (!container) return;
 
+    const mediaQuery = window.matchMedia('(min-width: 1025px)');
+
+    const resetAllImagesStyle = () => {
+      const allImages = container.querySelectorAll('.hover-img');
+      allImages.forEach((img) => {
+        img.style.opacity = '';
+        img.style.transform = '';
+        img.style.left = '';
+        img.style.top = '';
+      });
+    };
+
     const hideAllImages = () => {
       const allImages = container.querySelectorAll('.hover-img');
       allImages.forEach((img) => {
@@ -21,6 +33,11 @@ const Project = () => {
     };
 
     const updateHoverImage = () => {
+      if (!mediaQuery.matches) {
+        resetAllImagesStyle();
+        return;
+      }
+
       const { x, y } = lastMousePos.current;
 
       const elementAtMouse = document.elementFromPoint(x, y);
@@ -52,17 +69,29 @@ const Project = () => {
     };
 
     const handleMouseLeave = () => {
-      hideAllImages();
+      if (mediaQuery.matches) {
+        hideAllImages();
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
     container.addEventListener('mouseleave', handleMouseLeave);
 
+    const handleMediaChange = (e) => {
+      if (e.matches) {
+        hideAllImages();
+      } else {
+        resetAllImagesStyle();
+      }
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      mediaQuery.removeEventListener('change', handleMediaChange);
     };
   }, []);
 
@@ -73,6 +102,9 @@ const Project = () => {
         <div className="project-list">
           {projectText.list.map((project, index) => (
             <article className={`project-item s${index + 1}`} key={index}>
+              <div className="hover-img">
+                <Image src={project.img.src} alt={project.img.alt} style={{ width: '100%', height: '100%' }} />
+              </div>
               <div className="label">
                 <span className="name">{project.info.name}</span>
               </div>
@@ -105,9 +137,6 @@ const Project = () => {
                   <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
                   {project.info.stack}
                 </span>
-              </div>
-              <div className="hover-img">
-                <Image src={project.img.src} alt={project.img.alt} style={{ width: '100%', height: '100%' }} />
               </div>
             </article>
           ))}

@@ -131,6 +131,11 @@ const Header = () => {
 
   const handleNavClick = (e, url) => {
     setActiveLink(url);
+
+    if (show) {
+      setShow(false);
+    }
+
     if (!url || !url.startsWith('#') || url === '#') return;
 
     e.preventDefault();
@@ -172,7 +177,7 @@ const Header = () => {
           </ul>
         </nav>
         <div
-          className="header__nav__mobile"
+          className={`header__nav__mobile ${show ? 'active' : ''}`}
           id="headerToggle"
           aria-controls="primary-menu"
           aria-expanded={show ? 'true' : 'false'}
@@ -180,6 +185,8 @@ const Header = () => {
           tabIndex={0}
           onClick={toggleMenu}
         >
+          <span></span>
+          <span></span>
           <span></span>
         </div>
       </div>

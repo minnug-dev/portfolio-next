@@ -7,6 +7,9 @@ export function useCursor() {
   const mousePosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    if (!mediaQuery.matches) return;
+
     const cursor = document.querySelector('.cursor');
     const text = document.querySelector('.cursor-text');
 
