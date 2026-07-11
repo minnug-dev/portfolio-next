@@ -22,6 +22,10 @@
     font-weight: 600;
     white-space: nowrap;
   }
+
+  @media (max-width: $desktop) {
+    display: none;
+  }
 }
 
 [data-cursor] * {

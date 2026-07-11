@@ -1,5 +1,6 @@
 // z-index 레벨
 $skip-level: 100;
+$nav-level: 99;
 $cursor-level: 30;
 $header-level: 20;
 $main-level: 10;
@@ -16,4 +17,4 @@ $large-wide: 100rem;
 // 미디어쿼리 분기점
 $mobile: 768px;
 $tablet: 1024px;
-$desktop: 1280px;
+$desktop: 1440px;

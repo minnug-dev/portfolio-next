@@ -27,8 +27,8 @@ body {
   letter-spacing: -0.01em;
   cursor: none;
 
-  @media (max-width: 800px) {
-    font-size: 14px;
+  @media (max-width: $mobile) {
+    font-size: 0.875rem;
     line-height: 1.4;
   }
 
@@ -42,6 +42,10 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
+
+  @media (max-width: $mobile) {
+    font-size: 1.125rem;
+  }
 }
 
 .main {

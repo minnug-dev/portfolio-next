@@ -37,7 +37,35 @@
             &:last-child {
               padding-bottom: 0;
             }
+
+            @media (max-width: $mobile) {
+              font-size: 1.125rem;
+              padding-bottom: 0.875rem;
+            }
           }
+        }
+      }
+
+      @media (max-width: $tablet) {
+        display: block;
+        position: relative;
+
+        .img-wrap {
+          position: absolute;
+          right: 0;
+          top: -30%;
+          width: 15rem;
+          margin-right: 0;
+        }
+
+        .text-wrap {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: $mobile) {
+        .img-wrap {
+          top: -34%;
         }
       }
     }
@@ -90,12 +118,20 @@
                 font-weight: 600;
                 letter-spacing: -0.0375rem;
                 margin-bottom: 0.5rem;
+
+                @media (max-width: $mobile) {
+                  font-size: 1.125rem;
+                }
               }
 
               .desc {
                 font-size: 1.125rem;
                 color: var(--black300);
                 word-break: keep-all;
+
+                @media (max-width: $mobile) {
+                  font-size: 1rem;
+                }
               }
 
               .link {
@@ -113,7 +149,11 @@
 
                 .icon {
                   padding-right: 0.25rem;
-                  font-size: 1rem;
+                }
+
+                @media (max-width: $mobile) {
+                  font-size: 0.875rem;
+                  padding: 0.5rem 1rem;
                 }
 
                 &::before {
@@ -140,7 +180,33 @@
             }
           }
         }
+
+        @media (max-width: $mobile) {
+          width: 100%;
+          margin-bottom: 2rem;
+
+          .date {
+            width: 11rem;
+            white-space: nowrap;
+          }
+
+          .text-wrap {
+            width: calc(100% - 11rem);
+          }
+        }
       }
+    }
+
+    @media (max-width: $desktop) {
+      padding: 0 $gap-inner;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 0 calc($gap-inner / 2);
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0 calc($gap-inner / 4);
     }
   }
 }

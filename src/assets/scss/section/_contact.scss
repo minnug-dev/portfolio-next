@@ -15,13 +15,25 @@
     min-height: 100vh;
     max-width: $large-wide;
     width: 100%;
-    padding-bottom: 8rem;
+    padding: 0 $gap-inner $sec-inner $gap-inner;
     margin: 0 auto;
+
+    @media (max-width: $tablet) {
+      padding: 0 calc($gap-inner / 2) $sec-inner calc($gap-inner / 2);
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0 calc($gap-inner / 4) calc($sec-inner / 2) calc($gap-inner / 4);
+    }
   }
 
   &__cont {
     @include flex(between, end);
     width: 100%;
+
+    @media (max-width: $mobile) {
+      display: block;
+    }
 
     .sub-tit {
       margin-bottom: 1rem;
@@ -36,16 +48,28 @@
       font-weight: 700;
       text-transform: uppercase;
       text-indent: -0.875rem;
+
+      @media (max-width: $mobile) {
+        text-indent: 0;
+      }
     }
 
     .info {
       @include flex(center, start);
       gap: 3rem;
 
+      @media (max-width: $mobile) {
+        margin-top: calc($sec-inner / 2);
+      }
+
       .menu {
         @include column-flex(center, end);
         flex-wrap: wrap;
         text-align: center;
+
+        @media (max-width: $mobile) {
+          align-items: center;
+        }
 
         h3 {
           margin-bottom: 1rem;
@@ -59,6 +83,10 @@
           display: inline-block;
           margin: 1rem 0;
           font-size: 1.25rem;
+
+          @media (max-width: $mobile) {
+            font-size: 1rem;
+          }
 
           &::after {
             position: absolute;
@@ -83,5 +111,8 @@
 
   &-trigger {
     min-height: 100vh;
+  }
+
+  @media (max-width: $desktop) {
   }
 }
