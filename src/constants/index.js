@@ -124,7 +124,7 @@ export const workText = {
   stit: 'work',
   list: [
     {
-      link: 'https://www.notion.so/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
+      link: 'https://app.notion.com/p/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
       img: workChunjae,
       imgDesc: '천재교과서 디자인 화면',
       tit: '천재교과서',
