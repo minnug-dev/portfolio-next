@@ -6,15 +6,12 @@ $header-level: 20;
 $main-level: 10;
 $hover-level: 10;
 
-// 간격
-$gap-inner: 4rem;
-$sec-inner: 8em;
-
 // 너비
 $medium-wide: 75rem;
 $large-wide: 100rem;
 
 // 미디어쿼리 분기점
+$mobileL: 425px;
 $mobile: 768px;
 $tablet: 1024px;
 $desktop: 1440px;

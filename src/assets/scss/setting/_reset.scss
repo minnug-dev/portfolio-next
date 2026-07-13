@@ -97,15 +97,17 @@ img {
 // 스킵메뉴
 #skip a {
   position: absolute;
-  left: 10px;
-  top: -92px;
+  top: -999px;
+  left: 0;
   z-index: $skip-level;
-  font-size: 1rem;
-  padding: 10px 30px;
+  background-color: var(--black100);
   color: var(--white);
-  background: var(--black100);
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
 }
 #skip a:focus,
 #skip a:active {
-  top: 10px;
+  top: 0;
 }

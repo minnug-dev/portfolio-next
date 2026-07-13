@@ -1,23 +1,23 @@
 @use '../setting' as *;
 
 .work {
-  padding-top: $sec-inner;
+  padding-top: var(--spacing-sec);
 
   &__inner {
     max-width: $large-wide;
     margin: 0 auto;
-    padding: 0 $gap-inner;
-
-    @media (max-width: $tablet) {
-      padding: 0 calc($gap-inner / 2);
-    }
-
-    @media (max-width: $mobile) {
-      padding: 0 calc($gap-inner / 4);
-    }
+    padding: 0 var(--spacing-base);
 
     .sub-tit {
       text-align: center;
+
+      @media (max-width: $tablet) {
+        margin-bottom: 2rem;
+      }
+
+      @media (max-width: $mobile) {
+        margin-bottom: 1rem;
+      }
     }
   }
 
@@ -50,7 +50,7 @@
         overflow: hidden;
         width: 100%;
         height: 0;
-        padding-top: 60%;
+        padding-top: 59%;
         border: 1px solid var(--black100);
         border-radius: 1.25rem;
         background-color: var(--white);
@@ -70,11 +70,19 @@
         @media (max-width: $tablet) {
           font-size: 1.25rem;
         }
+
+        @media (max-width: $mobile) {
+          font-size: 1.125rem;
+        }
       }
 
       p {
         font-size: 1.125rem;
         word-break: keep-all;
+
+        @media (max-width: $mobile) {
+          font-size: 1rem;
+        }
       }
 
       .tool-wrap {

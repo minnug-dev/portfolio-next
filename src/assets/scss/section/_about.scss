@@ -1,7 +1,7 @@
 @use '../setting' as *;
 
 .about {
-  padding-top: $sec-inner;
+  padding-top: var(--spacing-sec);
 
   &__inner {
     max-width: $medium-wide;
@@ -10,14 +10,18 @@
 
     .sub-tit {
       padding-bottom: 2rem;
+
+      @media (max-width: $mobile) {
+        padding-bottom: 1rem;
+      }
     }
 
     .introduce {
       @include flex(between, center);
 
       .img-wrap {
-        width: calc(42% - $gap-inner);
-        margin-right: $gap-inner;
+        width: calc(42% - var(--spacing-base));
+        margin-right: var(--spacing-base);
 
         img {
           text-align: center;
@@ -34,13 +38,14 @@
             font-weight: 400;
             word-break: keep-all;
 
-            &:last-child {
-              padding-bottom: 0;
+            @media (max-width: $tablet) {
+              &:last-child {
+                padding-bottom: 1rem;
+              }
             }
 
             @media (max-width: $mobile) {
               font-size: 1.125rem;
-              padding-bottom: 0.875rem;
             }
           }
         }
@@ -74,7 +79,7 @@
       @include flex(between, start);
       flex-wrap: wrap;
       gap: 1rem;
-      margin-top: $gap-inner;
+      margin-top: var(--spacing-base);
 
       li {
         width: calc((100% - 1.875rem) / 2);
@@ -94,6 +99,10 @@
             @include flex(start, start);
             margin-bottom: 1.875rem;
 
+            @media (max-width: $mobileL) {
+              display: block;
+            }
+
             &:last-child {
               margin-bottom: 0;
             }
@@ -107,11 +116,21 @@
               text-align: center;
               background-color: var(--white);
               border-radius: 50px;
+
+              @media (max-width: $mobileL) {
+                display: block;
+                max-width: 100%;
+                margin-bottom: 0.625rem;
+              }
             }
 
             .text-wrap {
               padding-left: 1rem;
               font-size: 1.125rem;
+
+              @media (max-width: $mobileL) {
+                padding-left: 0;
+              }
 
               .name {
                 font-size: 1.25rem;
@@ -156,6 +175,11 @@
                   padding: 0.5rem 1rem;
                 }
 
+                @media (max-width: $mobileL) {
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
+
                 &::before {
                   position: absolute;
                   left: 0;
@@ -183,7 +207,7 @@
 
         @media (max-width: $mobile) {
           width: 100%;
-          margin-bottom: 2rem;
+          margin-bottom: 0.75rem;
 
           .date {
             width: 11rem;
@@ -194,19 +218,17 @@
             width: calc(100% - 11rem);
           }
         }
+
+        @media (max-width: $mobileL) {
+          .text-wrap {
+            width: 100%;
+          }
+        }
       }
     }
 
     @media (max-width: $desktop) {
-      padding: 0 $gap-inner;
-    }
-
-    @media (max-width: $tablet) {
-      padding: 0 calc($gap-inner / 2);
-    }
-
-    @media (max-width: $mobile) {
-      padding: 0 calc($gap-inner / 4);
+      padding: 0 var(--spacing-base);
     }
   }
 }

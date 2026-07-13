@@ -8,18 +8,14 @@
   z-index: $header-level;
   max-width: $large-wide;
   width: 100%;
-  padding: 0 $gap-inner;
+  padding: 0 var(--spacing-base);
 
   @media (max-width: $tablet) {
-    padding: calc($gap-inner / 2);
     top: 0;
     left: 0;
     max-width: 100%;
+    padding: var(--spacing-base);
     transform: none;
-  }
-
-  @media (max-width: $mobile) {
-    padding: calc($gap-inner / 4);
   }
 
   &__inner {
@@ -123,8 +119,8 @@
     &__mobile {
       position: relative;
       display: none;
-      width: 40px;
-      height: 40px;
+      width: 2.5rem;
+      height: 2.5rem;
       transform: rotate(0deg);
       transition: font-size 0.5s;
       cursor: pointer;

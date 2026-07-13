@@ -6,39 +6,31 @@
   right: 0;
   bottom: 0;
   z-index: -1;
-  padding: 1.25rem $gap-inner;
+  padding: 0 var (--spacing-base);
   background-color: rgba(32, 32, 32, 0.95);
-
-  @media (max-width: $tablet) {
-    padding: 1.25rem calc($gap-inner / 2);
-  }
-
-  @media (max-width: $mobile) {
-    padding: 0.75rem calc($gap-inner / 4);
-  }
 
   &__inner {
     @include flex(between, center);
     max-width: $large-wide;
     width: 100%;
     margin: 0 auto;
-    padding: 0 $gap-inner;
+    padding: 1.25rem var(--spacing-base);
     color: var(--white);
     text-align: center;
-
-    @media (max-width: $desktop) {
-      padding: 0;
-    }
-
-    @media (max-width: $mobile) {
-      display: block;
-      text-align: right;
-    }
 
     p {
       color: var(--black400);
       font-size: 0.875rem;
       letter-spacing: 0.02em;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0.825rem;
+      flex-direction: column;
+
+      p {
+        font-size: 0.75rem;
+      }
     }
   }
 }
