@@ -34,7 +34,7 @@ const Work = () => {
         opacity: 1,
         y: 0,
         duration: 1.5,
-        stagger: 0.5,
+        stagger: 0.3,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.work .work-list',

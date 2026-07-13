@@ -74,19 +74,22 @@ const Contact = () => {
               {contactText.contact.map((link, index) => (
                 <div key={index} className="menu">
                   <h3>{link.tit}</h3>
-                  {link.links.map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={item.link}
-                      target={item.link.startsWith('#') ? undefined : '_blank'}
-                      rel={item.link.startsWith('#') ? undefined : 'noopener noreferrer'}
-                      onClick={(e) => handleLinkClick(e, item.link)}
-                      data-cursor
-                      data-cursor-size="50"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
+                  <ul>
+                    {link.links.map((item, idx) => (
+                      <li key={idx}>
+                        <a
+                          href={item.link}
+                          target={item.link.startsWith('#') ? undefined : '_blank'}
+                          rel={item.link.startsWith('#') ? undefined : 'noopener noreferrer'}
+                          onClick={(e) => handleLinkClick(e, item.link)}
+                          data-cursor
+                          data-cursor-size="50"
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
