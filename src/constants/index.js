@@ -312,10 +312,10 @@ export const contactText = {
           link: 'https://github.com/minnug-dev',
           name: 'Github',
         },
-        {
-          link: 'abc',
-          name: 'Resume',
-        },
+        // {
+        //   link: 'abc',
+        //   name: 'Resume',
+        // },
         {
           link: 'https://velog.io/@minnug/posts',
           name: 'Blog',
