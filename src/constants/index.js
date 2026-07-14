@@ -312,10 +312,10 @@ export const contactText = {
           link: 'https://github.com/minnug-dev',
           name: 'Github',
         },
-        // {
-        //   link: 'abc',
-        //   name: 'Resume',
-        // },
+        {
+          link: 'https://app.notion.com/p/minnug/Minjoo-Park-0d45b8b2d93a4656b8657faf665d23a0?source=copy_link',
+          name: 'Resume',
+        },
         {
           link: 'https://velog.io/@minnug/posts',
           name: 'Blog',
