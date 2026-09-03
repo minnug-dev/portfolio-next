@@ -4,10 +4,9 @@
   padding-top: var(--spacing-sec);
 
   &__inner {
-    max-width: $large-wide;
+    max-width: $medium-wide;
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-base);
 
     .sub-tit {
       position: sticky;

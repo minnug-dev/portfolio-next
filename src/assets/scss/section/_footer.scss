@@ -11,10 +11,10 @@
 
   &__inner {
     @include flex(between, center);
-    max-width: $large-wide;
+    max-width: $medium-wide;
     width: 100%;
     margin: 0 auto;
-    padding: 1.25rem var(--spacing-base);
+    padding: 1.25rem 0;
     color: var(--white);
     text-align: center;
 
