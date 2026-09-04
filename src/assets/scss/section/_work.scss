@@ -1,20 +1,20 @@
 @use '../setting' as *;
 
 .work {
-  padding-top: var(--spacing-sec);
-
   &__inner {
     max-width: $medium-wide;
     margin: 0 auto;
+    padding: 0 var(--spacing-base);
 
     .sub-tit {
+      margin-bottom: 2rem;
       text-align: right;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $laptop) {
         margin-bottom: 2rem;
       }
 
-      @media (max-width: $mobile) {
+      @media (max-width: $tablet) {
         margin-bottom: 1rem;
       }
     }
@@ -23,24 +23,19 @@
   &-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 4rem 2rem;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       grid-template-columns: 1fr;
     }
 
-    .list-item {
+    .list-item > a {
       @include column-flex(start, start);
-      gap: 1.2rem;
+      gap: 1.2rem 3rem;
       text-align: left;
-      margin: 2rem 0 1rem;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $laptop) {
         margin-top: 0;
-      }
-
-      a {
-        width: 100%;
       }
 
       .img-wrap {
@@ -52,7 +47,7 @@
         padding-top: 59%;
         border-radius: 0.875rem;
         background-color: var(--white);
-        box-shadow: rgba(0, 0, 0, 0.06) 0px 0.075rem 0.25rem;
+        box-shadow: 0 0.0625rem 0.5rem rgba(0, 0, 0, 0.05);
 
         img {
           position: absolute;
@@ -66,11 +61,11 @@
         font-size: 1.25rem;
         font-weight: 600;
 
-        @media (max-width: $tablet) {
+        @media (max-width: $laptop) {
           font-size: 1.25rem;
         }
 
-        @media (max-width: $mobile) {
+        @media (max-width: $tablet) {
           font-size: 1.125rem;
         }
       }
@@ -79,7 +74,7 @@
         font-size: 1.125rem;
         word-break: keep-all;
 
-        @media (max-width: $mobile) {
+        @media (max-width: $tablet) {
           font-size: 1rem;
         }
       }
@@ -90,8 +85,9 @@
           padding: 0.25rem 1rem;
           margin-right: 0.5rem;
           margin-bottom: 0.5rem;
-          color: var(--black200);
+          color: var(--gray);
           font-weight: 500;
+          font-size: 0.875rem;
           border-radius: 50px;
           border: 1px solid var(--gray200);
         }
