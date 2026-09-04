@@ -201,8 +201,8 @@ export const projectText = {
         },
       ],
       info: {
-        name: '기업 프로젝트',
-        date: '2024.08.12-2024.09.20',
+        name: '기업 연계 프로젝트',
+        date: '2024.08.12 - 2024.09.20',
         stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
       },
       img: {
@@ -230,7 +230,7 @@ export const projectText = {
       ],
       info: {
         name: '미니 프로젝트',
-        date: '2024.06.17-2024.07.07',
+        date: '2024.06.17 - 2024.07.07',
         stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
       },
       img: {
@@ -257,8 +257,8 @@ export const projectText = {
         },
       ],
       info: {
-        name: '토이 프로젝트 2',
-        date: '2024.05.27-2024.06.08',
+        name: '토이 프로젝트',
+        date: '2024.05.27 - 2024.06.08',
         stack: 'React, Vite, TypeScript, Zustand, Firebase, styled-components, Figma',
       },
       img: {
@@ -285,8 +285,8 @@ export const projectText = {
         },
       ],
       info: {
-        name: '토이 프로젝트 1',
-        date: '2024.04.08-2024.04.21',
+        name: '토이 프로젝트',
+        date: '2024.04.08 - 2024.04.21',
         stack: 'React, Vite, Firebase, SCSS, Figma',
       },
       img: {

@@ -59,7 +59,7 @@ export function useCursor() {
           };
 
           if (text && text.textContent) {
-            vars.backgroundColor = 'var(--white)';
+            vars.backgroundColor = 'var(--mainColorReverse)';
           }
 
           gsap.to(cursor, vars);
