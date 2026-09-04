@@ -67,7 +67,7 @@ const Contact = () => {
         <div className="contact__inner">
           <div className="contact__cont">
             <div>
-              <h2 className="sub-tit">{contactText.stit}</h2>
+              <h2 className="sub-tit mono">{contactText.stit}</h2>
               <span className="name">{contactText.name}</span>
             </div>
             <div className="info">
@@ -78,6 +78,7 @@ const Contact = () => {
                     {link.links.map((item, idx) => (
                       <li key={idx}>
                         <a
+                          className="mono"
                           href={item.link}
                           target={item.link.startsWith('#') ? undefined : '_blank'}
                           rel={item.link.startsWith('#') ? undefined : 'noopener noreferrer'}

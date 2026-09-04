@@ -98,7 +98,7 @@ const Project = () => {
   return (
     <section id="project" className="project">
       <div className="project__inner" ref={containerRef}>
-        <h2 className="sub-tit">{projectText.stit}</h2>
+        <h2 className="sub-tit mono">{projectText.stit}</h2>
         <div className="project-list">
           {projectText.list.map((project, index) => (
             <article className={`project-item s${index + 1}`} key={index}>
@@ -124,11 +124,11 @@ const Project = () => {
                     data-cursor-size="50"
                   >
                     <FontAwesomeIcon icon={button.icon} className="icon" />
-                    <span>{button.text}</span>
+                    <span className="mono">{button.text}</span>
                   </a>
                 ))}
               </div>
-              <div className="info">
+              <div className="info mono">
                 <span className="date">
                   <FontAwesomeIcon icon={faCalendar} className="icon" />
                   {project.info.date}

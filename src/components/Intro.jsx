@@ -75,7 +75,7 @@ const Intro = () => {
       <div className="intro__inner">
         <h2 className="visually-hidden">박민주 포트폴리오 인트로</h2>
         <div className="intro__title">
-          <div className="text">
+          <div className="text mono">
             {introText.text}
             <span className="icon">👋</span>
           </div>
@@ -87,7 +87,7 @@ const Intro = () => {
         </div>
 
         <div className="scroll" ref={scrollRef}>
-          <span className="label">Scroll Down</span>
+          <span className="label mono">Scroll Down</span>
           <div className="bar">
             <span></span>
           </div>

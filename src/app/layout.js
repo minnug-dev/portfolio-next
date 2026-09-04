@@ -1,6 +1,7 @@
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import localFont from 'next/font/local';
+import { Montserrat, Space_Mono } from 'next/font/google';
 import '@/assets/scss/style.scss';
 import Cursor from '../components/Cursor';
 
@@ -10,6 +11,19 @@ const pretendard = localFont({
   src: '../assets/font/pretendard/PretendardVariable.woff2',
   display: 'swap',
   variable: '--font-pretendard',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
+
+const spaceMono = Space_Mono({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-mono',
 });
 
 export const metadata = {
@@ -37,7 +51,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <link rel="icon" href="favicon.svg" />
-      <body className={pretendard.variable}>
+      <body className={`${pretendard.variable} ${montserrat.variable} ${spaceMono.variable}`}>
         <Cursor />
         {children}
       </body>

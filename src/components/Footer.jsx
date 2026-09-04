@@ -8,9 +8,12 @@ const Footer = () => {
   return (
     <footer id="footer" className="footer" role="contentinfo">
       <div className="footer__inner">
-        <p>{footerText.info}</p>
+        <p className="mono">{footerText.info}</p>
         <p className="copy">
-          &copy; {currentYear} {footerText.name}
+          &copy;{' '}
+          <span className="mono">
+            {currentYear} {footerText.name}
+          </span>
         </p>
       </div>
     </footer>

@@ -169,7 +169,13 @@ const Header = () => {
             {headerNav.map((nav, key) => (
               <li key={key} className={activeLink === nav.link ? 'active' : ''}>
                 <span className="dot"></span>
-                <a href={nav.link} data-cursor data-cursor-size="50" onClick={(e) => handleNavClick(e, nav.link, key)}>
+                <a
+                  className="mono"
+                  href={nav.link}
+                  data-cursor
+                  data-cursor-size="50"
+                  onClick={(e) => handleNavClick(e, nav.link, key)}
+                >
                   {nav.name}
                 </a>
               </li>

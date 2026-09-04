@@ -85,7 +85,16 @@ const About = () => {
   return (
     <section id="about" className="about" ref={containerRef}>
       <div className="about__inner">
+        <h2 className="sub-tit mono">{aboutText.stit}</h2>
         <div className="introduce">
+          <div className="text-wrap">
+            <div className="info">
+              <p>{aboutText.info[0]}</p>
+              <p>{aboutText.info[1]}</p>
+              <p>{aboutText.info[2]}</p>
+              <p>{aboutText.info[3]}</p>
+            </div>
+          </div>
           <div className="img-wrap">
             <Image
               src={aboutText.img}
@@ -94,27 +103,18 @@ const About = () => {
               priority
             />
           </div>
-          <div className="text-wrap">
-            <h2 className="sub-tit">{aboutText.stit}</h2>
-            <div className="info">
-              <p>{aboutText.info[0]}</p>
-              <p>{aboutText.info[1]}</p>
-              <p>{aboutText.info[2]}</p>
-              <p>{aboutText.info[3]}</p>
-            </div>
-          </div>
         </div>
         <ul className="history-list">
           {aboutText.history.map((history, index) => (
             <li key={index} className="history-item">
-              <h3>
+              <h3 className="mono">
                 <FontAwesomeIcon icon={history.icon} className="icon" />
                 {history.tit}
               </h3>
               <div className="item">
                 {history.list.map((item, index) => (
                   <div key={index}>
-                    <span className="date">{item.date}</span>
+                    <span className="date mono">{item.date}</span>
                     <div className="text-wrap">
                       <h4 className="name">{item.name}</h4>
                       <p className="desc">{item.desc}</p>

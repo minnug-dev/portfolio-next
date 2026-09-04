@@ -50,7 +50,7 @@ const Work = () => {
   return (
     <section id="work" className="work" ref={containerRef}>
       <div className="work__inner">
-        <h2 className="sub-tit">{workText.stit}</h2>
+        <h2 className="sub-tit mono">{workText.stit}</h2>
         <div className="work-list">
           {workText.list.map((work, index) => (
             <div key={index} className="list-item">
@@ -63,7 +63,9 @@ const Work = () => {
               <p>{work.desc}</p>
               <div className="tool-wrap">
                 {work.tool.map((tool, index) => (
-                  <span key={index}>{tool}</span>
+                  <span className="mono" key={index}>
+                    {tool}
+                  </span>
                 ))}
               </div>
             </div>

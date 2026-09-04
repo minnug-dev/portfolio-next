@@ -38,7 +38,7 @@ export const introText = {
 
 export const aboutText = {
   img: profile,
-  stit: 'about me',
+  stit: '// About',
   info: [
     '안녕하세요! 웹 퍼블리셔 박민주입니다.',
     '사용자가 편안하게 이용할 수 있는 인터페이스를 만드는 일에 즐거움을 느끼며, 웹 표준과 접근성을 기반으로 완성도 높은 화면을 구현하고 있습니다.',
@@ -121,7 +121,7 @@ export const aboutText = {
 };
 
 export const workText = {
-  stit: 'work',
+  stit: '// Work',
   list: [
     {
       link: 'https://app.notion.com/p/minnug/1fc35661017b80e396b5c454839f9cc9?source=copy_link',
@@ -175,7 +175,7 @@ export const workText = {
 };
 
 export const projectText = {
-  stit: 'team project',
+  stit: '// Project',
   list: [
     {
       text: {
@@ -298,7 +298,7 @@ export const projectText = {
 };
 
 export const contactText = {
-  stit: 'contact',
+  stit: 'Contact',
   name: 'Minjoo',
   contact: [
     {
