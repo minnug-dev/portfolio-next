@@ -78,7 +78,7 @@
     .label {
       display: block;
       margin-bottom: 1rem;
-      color: var(--black200);
+      color: var(--gray200);
     }
 
     .bar {
@@ -86,7 +86,7 @@
       overflow: hidden;
       width: 2px;
       height: 6.25rem;
-      background-color: var(--black500);
+      background-color: var(--gray400);
 
       span {
         position: absolute;
@@ -95,7 +95,7 @@
         right: 0;
         width: 2px;
         height: 2rem;
-        background-color: var(--black300);
+        background-color: var(--gray100);
         animation: scrollBar 1.8s ease-in-out infinite;
       }
     }
