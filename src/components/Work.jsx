@@ -54,7 +54,7 @@ const Work = () => {
         <div className="work-list">
           {workText.list.map((work, index) => (
             <div key={index} className="list-item">
-              <a href={work.link} target="_blank" data-cursor data-cursor-size="100" data-cursor-text="View">
+              <a href={work.link} target="_blank">
                 <div className="img-wrap">
                   <Image src={work.img} alt={work.imgDesc} style={{ width: '100%', height: 'auto' }} />
                 </div>
