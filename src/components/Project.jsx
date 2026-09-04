@@ -1,145 +1,87 @@
-import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, EffectFade } from 'swiper/modules';
 import { projectText } from '@/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons';
 
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 const Project = () => {
-  const containerRef = useRef(null);
-  const lastMousePos = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const mediaQuery = window.matchMedia('(min-width: 1025px)');
-
-    const resetAllImagesStyle = () => {
-      const allImages = container.querySelectorAll('.hover-img');
-      allImages.forEach((img) => {
-        img.style.opacity = '';
-        img.style.transform = '';
-        img.style.left = '';
-        img.style.top = '';
-      });
-    };
-
-    const hideAllImages = () => {
-      const allImages = container.querySelectorAll('.hover-img');
-      allImages.forEach((img) => {
-        img.style.opacity = '0';
-        img.style.transform = 'translateY(-50%) scale(0.8)';
-      });
-    };
-
-    const updateHoverImage = () => {
-      if (!mediaQuery.matches) {
-        resetAllImagesStyle();
-        return;
-      }
-
-      const { x, y } = lastMousePos.current;
-
-      const elementAtMouse = document.elementFromPoint(x, y);
-      if (!elementAtMouse) return;
-
-      const currentItem = elementAtMouse.closest('.project-item');
-
-      hideAllImages();
-
-      if (currentItem) {
-        const hoverImg = currentItem.querySelector('.hover-img');
-        if (hoverImg) {
-          hoverImg.style.left = `${x + 20}px`;
-          hoverImg.style.top = `${y}px`;
-
-          hoverImg.style.opacity = '1';
-          hoverImg.style.transform = 'translateY(15px) scale(1)';
-        }
-      }
-    };
-
-    const handleMouseMove = (e) => {
-      lastMousePos.current = { x: e.clientX, y: e.clientY };
-      updateHoverImage();
-    };
-
-    const handleScroll = () => {
-      updateHoverImage();
-    };
-
-    const handleMouseLeave = () => {
-      if (mediaQuery.matches) {
-        hideAllImages();
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    container.addEventListener('mouseleave', handleMouseLeave);
-
-    const handleMediaChange = (e) => {
-      if (e.matches) {
-        hideAllImages();
-      } else {
-        resetAllImagesStyle();
-      }
-    };
-    mediaQuery.addEventListener('change', handleMediaChange);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-      mediaQuery.removeEventListener('change', handleMediaChange);
-    };
-  }, []);
-
   return (
     <section id="project" className="project">
-      <div className="project__inner" ref={containerRef}>
+      <div className="project__inner">
         <h2 className="sub-tit mono">{projectText.stit}</h2>
-        <div className="project-list">
-          {projectText.list.map((project, index) => (
-            <article className={`project-item s${index + 1}`} key={index}>
-              <div className="hover-img">
-                <Image src={project.img.src} alt={project.img.alt} style={{ width: '100%', height: '100%' }} />
-              </div>
-              <div className="label">
-                <span className="name">{project.info.name}</span>
-              </div>
-              <div className="text">
-                <h3>{project.text.tit}</h3>
-                <h4>{project.text.subTitle}</h4>
-                <p>{project.text.desc}</p>
-              </div>
-              <div className="btn">
-                {project.buttons.map((button, index) => (
-                  <a
-                    key={index}
-                    href={button.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-cursor
-                    data-cursor-size="50"
-                  >
-                    <FontAwesomeIcon icon={button.icon} className="icon" />
-                    <span className="mono">{button.text}</span>
-                  </a>
-                ))}
-              </div>
-              <div className="info mono">
-                <span className="date">
-                  <FontAwesomeIcon icon={faCalendar} className="icon" />
-                  {project.info.date}
-                </span>
-                <span className="stack">
-                  <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
-                  {project.info.stack}
-                </span>
-              </div>
-            </article>
-          ))}
+        <div className="project__list">
+          <Swiper
+            modules={[Pagination, EffectFade]}
+            slidesPerView={1}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            speed={1500}
+            loop={true}
+            grabCursor={true}
+            mousewheel={{
+              invert: false,
+            }}
+            pagination={{
+              el: '.project-pagination',
+              clickable: true,
+              bulletClass: 'project-bullet',
+              bulletActiveClass: 'project-bullet--active',
+            }}
+            className="project-swiper"
+          >
+            {projectText.list.map((project, index) => (
+              <SwiperSlide key={index}>
+                <article className={`list__item s${index + 1}`} key={index}>
+                  <div className="img-wrap">
+                    <Image src={project.img.src} alt={project.img.alt} style={{ width: '100%', height: '100%' }} />
+                  </div>
+                  <div className="text-wrap">
+                    <div>
+                      <div className="label">
+                        <span className="name">{project.info.name}</span>
+                      </div>
+                      <div className="text">
+                        <h3>{project.text.tit}</h3>
+                        <h4>{project.text.subTitle}</h4>
+                        <p>{project.text.desc}</p>
+                      </div>
+                      <div className="btn">
+                        {project.buttons.map((button, index) => (
+                          <a
+                            key={index}
+                            href={button.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-cursor
+                            data-cursor-size="50"
+                          >
+                            <FontAwesomeIcon icon={button.icon} className="icon" />
+                            <span className="mono">{button.text}</span>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="info mono">
+                      <span className="date">
+                        <FontAwesomeIcon icon={faCalendar} className="icon" />
+                        {project.info.date}
+                      </span>
+                      <span className="stack">
+                        <FontAwesomeIcon icon={faScrewdriverWrench} className="icon" />
+                        {project.info.stack}
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </SwiperSlide>
+            ))}
+
+            <div className="project-pagination"></div>
+          </Swiper>
         </div>
       </div>
     </section>
