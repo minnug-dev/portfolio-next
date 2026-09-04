@@ -11,7 +11,7 @@
   &__title {
     margin-top: -4rem;
 
-    @media (max-width: $mobile) {
+    @media (max-width: $tablet) {
       padding: 0 var(--spacing-base);
     }
 
@@ -25,11 +25,11 @@
       will-change: clip-path;
       transition: font-size 0.6s ease-in-out;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $laptop) {
         font-size: 1rem;
       }
 
-      @media (max-width: $mobile) {
+      @media (max-width: $tablet) {
         font-size: 0.875rem;
       }
 
@@ -52,11 +52,11 @@
       will-change: clip-path;
       transition: font-size 0.6s ease-in-out;
 
-      @media (max-width: $tablet) {
+      @media (max-width: $laptop) {
         font-size: 4rem;
       }
 
-      @media (max-width: $mobile) {
+      @media (max-width: $tablet) {
         font-size: 3rem;
       }
     }

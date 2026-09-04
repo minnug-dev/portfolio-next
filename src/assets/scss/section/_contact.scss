@@ -15,6 +15,8 @@
     min-height: 100vh;
     max-width: $medium-wide;
     width: 100%;
+    padding-left: var(--spacing-base);
+    padding-right: var(--spacing-base);
     padding-bottom: var(--spacing-sec);
     margin: 0 auto;
 
@@ -51,7 +53,6 @@
       color: var(--white);
       font-weight: 700;
       text-transform: uppercase;
-      text-indent: -0.875rem;
 
       @media (max-width: $mobile) {
         text-indent: 0;
@@ -108,7 +109,7 @@
             bottom: 0;
             width: 0;
             height: 1px;
-            background-color: var(--white);
+            background-color: var(--mainColor);
             transition: width 0.3s ease-in-out;
             content: '';
           }

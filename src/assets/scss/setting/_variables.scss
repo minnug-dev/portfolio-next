@@ -15,6 +15,7 @@
   --gray200: #8f8f8f;
   --gray300: #d8d9df;
   --gray400: #e9e2e2;
+  --gray500: #ece7e7;
   --yellow: #fdd928;
   --orange: #ffad87;
   --softOrange: #ffc2a6;
@@ -25,15 +26,14 @@
   --purple: #c0b8f6;
   --softPurple: #cec8f8;
 
-  --spacing-base: 4rem;
+  --spacing-base: 2rem;
   --spacing-sec: 8rem;
 
-  @media (max-width: $tablet) {
-    --spacing-base: 2rem;
+  @media (max-width: $laptop) {
     --spacing-sec: 4rem;
   }
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     --spacing-base: 1rem;
   }
 }
