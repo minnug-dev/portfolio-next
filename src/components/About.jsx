@@ -86,6 +86,7 @@ const About = () => {
     <section id="about" className="about" ref={containerRef}>
       <div className="about__inner">
         <h2 className="sub-tit mono">{aboutText.stit}</h2>
+
         <div className="introduce">
           <div className="text-wrap">
             <div className="info">
@@ -104,19 +105,53 @@ const About = () => {
             />
           </div>
         </div>
-        <ul className="history-list">
-          {aboutText.history.map((history, index) => (
-            <li key={index} className="history-item">
-              <h3 className="mono">
-                <FontAwesomeIcon icon={history.icon} className="icon" />
-                {history.tit}
-              </h3>
-              <div className="item">
-                {history.list.map((item, index) => (
-                  <div key={index}>
+
+        <ul className="history">
+          <li className="history__item">
+            <h3 className="mono">
+              <FontAwesomeIcon icon={aboutText.history[0].icon} className="icon" />
+              {aboutText.history[0].tit}
+            </h3>
+            <div className="cont">
+              {aboutText.history[0].list.map((item, index) => (
+                <div key={index} className="cont-wrap">
+                  <div>
+                    <h4 className="name">{item.name}</h4>
                     <span className="date mono">{item.date}</span>
-                    <div className="text-wrap">
-                      <h4 className="name">{item.name}</h4>
+                  </div>
+                  <p className="desc">{item.desc}</p>
+                  {item.link && (
+                    <a
+                      href={item.link.url}
+                      className="link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor
+                      data-cursor-size="50"
+                    >
+                      <FontAwesomeIcon icon={faLink} className="icon" />
+                      {item.link.label}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </li>
+
+          <li className="history__group">
+            {aboutText.history.slice(1).map((history, index) => (
+              <div key={index} className="history__item">
+                <h3 className="mono">
+                  <FontAwesomeIcon icon={history.icon} className="icon" />
+                  {history.tit}
+                </h3>
+                <div className="cont">
+                  {history.list.map((item, idx) => (
+                    <div key={idx} className="cont-wrap">
+                      <div>
+                        <h4 className="name">{item.name}</h4>
+                        <span className="date mono">{item.date}</span>
+                      </div>
                       <p className="desc">{item.desc}</p>
                       {item.link && (
                         <a
@@ -132,11 +167,11 @@ const About = () => {
                         </a>
                       )}
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </li>
-          ))}
+            ))}
+          </li>
         </ul>
       </div>
     </section>
