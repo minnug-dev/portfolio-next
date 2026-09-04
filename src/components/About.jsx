@@ -1,89 +1,11 @@
 import Image from 'next/image';
-import React, { useRef, useLayoutEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import { aboutText } from '@/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const About = () => {
-  const containerRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.set('.about .img-wrap', {
-        opacity: 0,
-        y: -50,
-      });
-      gsap.set('.about .sub-tit', {
-        opacity: 0,
-        y: 40,
-      });
-      gsap.set('.about .info', {
-        opacity: 0,
-        y: 40,
-      });
-      gsap.set('.about .history-item', {
-        opacity: 0,
-        y: 50,
-      });
-
-      const introTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.about .introduce',
-          start: 'top 75%',
-          toggleActions: 'play none none reverse',
-        },
-        defaults: { ease: 'power3.out' },
-      });
-
-      introTl
-        .to('.about .img-wrap', {
-          opacity: 1,
-          y: 0,
-          duration: 1.5,
-        })
-        .to(
-          '.about .sub-tit',
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-          },
-          '-=1',
-        )
-        .to(
-          '.about .info',
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.3,
-          },
-          '-=1',
-        );
-
-      gsap.to('.about .history-item', {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.about .history-list',
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="about" className="about" ref={containerRef}>
+    <section id="about" className="about">
       <div className="about__inner">
         <h2 className="sub-tit mono">{aboutText.stit}</h2>
 
