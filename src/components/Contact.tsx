@@ -8,8 +8,8 @@ import { useNav } from '@/contexts/NavContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
-  const contactRef = useRef(null);
-  const triggerRef = useRef(null);
+  const contactRef = useRef<HTMLElement | null>(null);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
   const { setActiveLink } = useNav();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Contact = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleLinkClick = (e, url) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
     if (!url || !url.startsWith('#') || url === '#') return;
 
     e.preventDefault();

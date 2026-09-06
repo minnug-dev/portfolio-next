@@ -7,8 +7,8 @@ import { introText } from '@/constants';
 gsap.registerPlugin(ScrollTrigger);
 
 const Intro = () => {
-  const containerRef = useRef(null);
-  const scrollRef = useRef(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {

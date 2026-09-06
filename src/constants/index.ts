@@ -1,3 +1,4 @@
+import { StaticImageData } from 'next/image';
 import profile from '../assets/img/profile.png';
 import workChunjae from '../assets/img/work_chunjae.webp';
 import workMeplzKolon01 from '../assets/img/work_meplz_sales.png';
@@ -9,10 +10,116 @@ import projectDain from '../assets/img/project_dainreview.png';
 import projectJeogi from '../assets/img/project_jeogieottae.png';
 import projectHealth from '../assets/img/project_healthcare.png';
 import projectFast from '../assets/img/project_fastcampus.png';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faNotion } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faGraduationCap, faMedal, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
-export const headerNav = [
+// Types
+interface HeaderNavItem {
+  link: string;
+  name: string;
+}
+
+interface IntroText {
+  text: string;
+  tit: string[];
+}
+
+interface HistoryLink {
+  url: string;
+  label: string;
+}
+
+interface HistoryListItem {
+  date: string;
+  name: string;
+  desc: string;
+  link?: HistoryLink;
+}
+
+interface HistoryGroup {
+  icon: IconDefinition;
+  tit: string;
+  list: HistoryListItem[];
+}
+
+interface AboutText {
+  img: StaticImageData;
+  stit: string;
+  info: string[];
+  history: HistoryGroup[];
+}
+
+interface WorkItem {
+  link: string;
+  img: StaticImageData;
+  imgDesc: string;
+  tit: string;
+  desc: string;
+  tool: string[];
+}
+
+interface WorkText {
+  stit: string;
+  list: WorkItem[];
+}
+
+interface ProjectButton {
+  text: string;
+  href: string;
+  icon: IconDefinition;
+}
+
+interface ProjectInfo {
+  name: string;
+  date: string;
+  stack: string;
+}
+
+interface ProjectImg {
+  src: StaticImageData;
+  alt: string;
+}
+
+interface ProjectItem {
+  text: {
+    tit: string;
+    subTitle: string;
+    desc: string;
+  };
+  buttons: ProjectButton[];
+  info: ProjectInfo;
+  img: ProjectImg;
+}
+
+interface ProjectText {
+  stit: string;
+  list: ProjectItem[];
+}
+
+interface ContactLinkItem {
+  link: string;
+  name: string;
+}
+
+interface ContactGroup {
+  tit: string;
+  links: ContactLinkItem[];
+}
+
+interface ContactText {
+  stit: string;
+  name: string;
+  contact: ContactGroup[];
+}
+
+interface FooterText {
+  name: string;
+  info: string;
+}
+
+// Data
+export const headerNav: HeaderNavItem[] = [
   {
     link: '#about',
     name: 'About',
@@ -31,12 +138,12 @@ export const headerNav = [
   },
 ];
 
-export const introText = {
+export const introText: IntroText = {
   text: 'HELLO THERE!',
   tit: ['I’m Minjoo Park.', 'Welcome to', 'my web portfolio!'],
 };
 
-export const aboutText = {
+export const aboutText: AboutText = {
   img: profile,
   stit: '01 About',
   info: [
@@ -120,7 +227,7 @@ export const aboutText = {
   ],
 };
 
-export const workText = {
+export const workText: WorkText = {
   stit: '02 Work',
   list: [
     {
@@ -174,7 +281,7 @@ export const workText = {
   ],
 };
 
-export const projectText = {
+export const projectText: ProjectText = {
   stit: '03 Project',
   list: [
     {
@@ -297,7 +404,7 @@ export const projectText = {
   ],
 };
 
-export const contactText = {
+export const contactText: ContactText = {
   stit: 'Contact',
   name: 'minjoo',
   contact: [
@@ -346,7 +453,7 @@ export const contactText = {
   ],
 };
 
-export const footerText = {
+export const footerText: FooterText = {
   name: 'Park Minjoo.  All rights reserved.',
   info: 'Built with Next.js',
 };

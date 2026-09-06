@@ -3,15 +3,15 @@ import gsap from 'gsap';
 
 export function useCursor() {
   const isHoveredRef = useRef(false);
-  const currentTargetRef = useRef(null);
+  const currentTargetRef = useRef<HTMLElement | null>(null);
   const mousePosRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 1024px)');
     if (!mediaQuery.matches) return;
 
-    const cursor = document.querySelector('.cursor');
-    const text = document.querySelector('.cursor-text');
+    const cursor = document.querySelector<HTMLElement>('.cursor');
+    const text = document.querySelector<HTMLElement>('.cursor-text');
 
     if (!cursor) return;
 
@@ -23,14 +23,14 @@ export function useCursor() {
     const xTo = gsap.quickTo(cursor, 'x', { duration: 0.18, ease: 'power3.out' });
     const yTo = gsap.quickTo(cursor, 'y', { duration: 0.18, ease: 'power3.out' });
 
-    function updateCursorState(target) {
+    function updateCursorState(target: HTMLElement | null) {
       if (target) {
         if (!isHoveredRef.current || currentTargetRef.current !== target) {
           isHoveredRef.current = true;
           currentTargetRef.current = target;
 
           const size = Number(target.dataset.cursorSize) || 100;
-          const vars = {
+          const vars: gsap.TweenVars = {
             width: size,
             height: size,
             duration: 0.3,
@@ -50,7 +50,7 @@ export function useCursor() {
           isHoveredRef.current = false;
           currentTargetRef.current = null;
 
-          const vars = {
+          const vars: gsap.TweenVars = {
             width: 20,
             height: 20,
             duration: 0.4,
@@ -68,13 +68,13 @@ export function useCursor() {
       }
     }
 
-    function move(e) {
+    function move(e: PointerEvent) {
       mousePosRef.current = { x: e.clientX, y: e.clientY };
 
       xTo(e.clientX);
       yTo(e.clientY);
 
-      const target = e.target.closest('[data-cursor]');
+      const target = (e.target as HTMLElement)?.closest<HTMLElement>('[data-cursor]') ?? null;
       updateCursorState(target);
     }
 
@@ -83,7 +83,7 @@ export function useCursor() {
       const elementAtPoint = document.elementFromPoint(x, y);
 
       if (elementAtPoint) {
-        const target = elementAtPoint.closest('[data-cursor]');
+        const target = (elementAtPoint as HTMLElement).closest<HTMLElement>('[data-cursor]');
         updateCursorState(target);
       }
     }

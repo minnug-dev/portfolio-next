@@ -8,14 +8,14 @@ import { useNav } from '@/contexts/NavContext';
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
-  const headerRef = useRef(null);
+  const headerRef = useRef<HTMLElement | null>(null);
   const { activeLink, setActiveLink } = useNav();
 
   // hover 인터랙션
   useEffect(() => {
-    const items = document.querySelectorAll('.header__nav li');
+    const items = document.querySelectorAll<HTMLLIElement>('.header__nav li');
 
-    const cleanups = [];
+    const cleanups: Array<() => void> = [];
 
     items.forEach((item) => {
       const link = item.querySelector('a');
@@ -80,7 +80,7 @@ const Header = () => {
 
   // active 인터랙션 (점 표시/숨김)
   useEffect(() => {
-    const items = document.querySelectorAll('.header__nav li');
+    const items = document.querySelectorAll<HTMLLIElement>('.header__nav li');
 
     items.forEach((item) => {
       const dot = item.querySelector('.dot');
@@ -129,7 +129,7 @@ const Header = () => {
     setShow((prevShow) => !prevShow);
   };
 
-  const handleNavClick = (e, url) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
     setActiveLink(url);
 
     if (show) {
@@ -174,7 +174,7 @@ const Header = () => {
                   href={nav.link}
                   data-cursor
                   data-cursor-size="50"
-                  onClick={(e) => handleNavClick(e, nav.link, key)}
+                  onClick={(e) => handleNavClick(e, nav.link)}
                 >
                   {nav.name}
                 </a>

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+import { Metadata } from 'next';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import localFont from 'next/font/local';
@@ -26,10 +28,9 @@ const spaceMono = Space_Mono({
   variable: '--font-space-mono',
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: '박민주 포트폴리오',
   description: 'Next.js로 제작한 박민주 포트폴리오 사이트입니다.',
-  url: 'https://minjoo-park.netlify.app/',
   openGraph: {
     title: '박민주 포트폴리오',
     description: 'Next.js로 제작한 박민주 포트폴리오 사이트입니다.',
@@ -47,7 +48,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <link rel="icon" href="favicon.svg" />
