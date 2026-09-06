@@ -455,5 +455,5 @@ export const contactText: ContactText = {
 
 export const footerText: FooterText = {
   name: 'Park Minjoo.  All rights reserved.',
-  info: 'Built with Next.js',
+  info: 'Built with Next.js & TypeScript',
 };
