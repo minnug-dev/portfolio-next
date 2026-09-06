@@ -53,6 +53,30 @@
       }
     }
 
+    .project-nav-prev,
+    .project-nav-next {
+      position: absolute;
+      color: var(--gray200);
+      top: 1rem;
+      right: 1rem;
+      z-index: 1;
+      background-color: transparent;
+      border: 1px solid var(--gray200);
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+
+      &:hover {
+        color: var(--mainColor);
+        border-color: var(--mainColor);
+        animation: all 0.5s;
+      }
+    }
+
+    .project-nav-prev {
+      right: 3.5rem;
+    }
+
     .list__item {
       @include flex(start, between);
       width: 100%;
