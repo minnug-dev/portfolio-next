@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { headerNav } from '@/constants';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollToTarget } from '@/utils/scrollTo';
 import { useNav } from '@/contexts/NavContext';
+import { resolveNavHref } from '@/utils/navLink';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
   const headerRef = useRef<HTMLElement | null>(null);
   const { activeLink, setActiveLink } = useNav();
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === '/';
 
   // hover 인터랙션
   useEffect(() => {
@@ -87,7 +93,7 @@ const Header = () => {
       const a = item.querySelector('a');
       if (!dot || !a) return;
 
-      const isActive = a.getAttribute('href') === activeLink;
+      const isActive = !!activeLink && a.getAttribute('href') === resolveNavHref(activeLink, isHome);
 
       gsap.to(dot, {
         scale: isActive ? 1 : 0,
@@ -96,7 +102,7 @@ const Header = () => {
         ease: isActive ? 'back.out(3)' : 'power1.out',
       });
     });
-  }, [activeLink]);
+  }, [activeLink, isHome]);
 
   // active 업데이트
   useEffect(() => {
@@ -140,6 +146,12 @@ const Header = () => {
 
     e.preventDefault();
 
+    // 상세 페이지에서는 홈의 해당 섹션으로 이동
+    if (!isHome && url !== '#contact') {
+      router.push(resolveNavHref(url, false));
+      return;
+    }
+
     const headerHeight = headerRef.current?.offsetHeight || 0;
 
     if (url === '#contact') {
@@ -161,7 +173,7 @@ const Header = () => {
       <div className="header__inner">
         <div className="header__logo">
           <h1>
-            <a href="#">minjoo</a>
+            <Link href={isHome ? '#' : '/'}>minjoo</Link>
           </h1>
         </div>
         <nav className={`header__nav ${show ? 'show' : ''}`} role="navigation" aria-label="메인 메뉴">
@@ -171,7 +183,7 @@ const Header = () => {
                 <span className="dot"></span>
                 <a
                   className="mono"
-                  href={nav.link}
+                  href={resolveNavHref(nav.link, isHome)}
                   data-cursor
                   data-cursor-size="50"
                   onClick={(e) => handleNavClick(e, nav.link)}

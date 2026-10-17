@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { workText } from '@/constants';
 const Work = () => {
   return (
@@ -8,12 +9,15 @@ const Work = () => {
         <div className="work-list">
           {workText.list.map((work, index) => (
             <div key={index} className="list-item">
-              <a href={work.link} target="_blank" data-cursor data-cursor-size="60" data-cursor-text="↗">
+              <Link href={`/work/${work.slug}`} data-cursor data-cursor-size="60" data-cursor-text="↗">
                 <div className="img-wrap">
                   <Image src={work.img} alt={work.imgDesc} style={{ width: '100%', height: 'auto' }} />
                 </div>
 
-                <h3>{work.tit}</h3>
+                <h3 className="tit">
+                  <span className={`company ${work.slug}`}>{work.company}</span>
+                  {work.tit}
+                </h3>
                 <p>{work.desc}</p>
                 <div className="tool-wrap">
                   {work.tool.map((tool, index) => (
@@ -22,7 +26,7 @@ const Work = () => {
                     </span>
                   ))}
                 </div>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
