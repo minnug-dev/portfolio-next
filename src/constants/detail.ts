@@ -12,8 +12,8 @@ import chunjaeAppStep02 from '@/assets/img/work_chunjae_app_stap02.png';
 import chunjaeAppStep03 from '@/assets/img/work_chunjae_app_stap03.png';
 import meplzSales from '@/assets/img/work_meplz_sales.png';
 import meplzSalesMain from '@/assets/img/work_meplz_sales_main.png';
-import meplzSalesStatus from '@/assets/img/work_meplz_sales_status.png';
 import meplzSalesTrade from '@/assets/img/work_meplz_sales_trade.png';
+import meplzSalesMo from '@/assets/img/work_meplz_sales_mo.png';
 import meplzSalesMoStatus from '@/assets/img/work_meplz_sales_mo_status.png';
 import meplzSalesMoTrade from '@/assets/img/work_meplz_sales_mo_trade.png';
 import meplzPeopleLeader from '@/assets/img/work_meplz_people_leader.png';
@@ -30,7 +30,6 @@ import meplzHyunRegister from '@/assets/img/work_meplz_hyundai_register.png';
 import meplzValexAgree from '@/assets/img/work_meplz_valex_agree.png';
 import meplzValexComplete from '@/assets/img/work_meplz_valex_complete.png';
 import meplzValexLogin from '@/assets/img/work_meplz_valex_login.png';
-import meplzValexLoginSimple from '@/assets/img/work_meplz_valex_login_simple.png';
 import meplzValexPassword from '@/assets/img/work_meplz_valex_password.png';
 import meplzValexPop from '@/assets/img/work_meplz_valex_pop.png';
 
@@ -469,13 +468,13 @@ export const workDetail: Record<string, DetailContent> = {
     ],
   },
   'kolon-salesworx': {
+    imagesClass: 'col-3',
     images: [
       { src: meplzSalesMain, alt: '메인', caption: '메인' },
-      // { src: meplzSalesDetail, alt: '수주품의 상세', caption: '수주품의 상세' },
       { src: meplzSales, alt: 'PJT완료보고품의 ', caption: 'PJT완료보고품의' },
       { src: meplzSalesTrade, alt: '거래처별 여신현황', caption: '거래처별 여신현황' },
-      { src: meplzSalesStatus, alt: '판매/구매 현황', caption: '판매/구매 현황' },
-      { src: meplzSalesMoTrade, alt: 'Mobile - 판매/구매현황', caption: 'Mobile - 판매/구매현황' },
+      { src: meplzSalesMo, alt: 'Mobile - PJT완료보고품의', caption: 'Mobile - PJT완료보고품의' },
+      { src: meplzSalesMoTrade, alt: 'Mobile - 판매/구매 현황', caption: 'Mobile - 판매/구매 현황' },
       { src: meplzSalesMoStatus, alt: 'Mobile - 거래처별 여신현황', caption: 'Mobile - 거래처별 여신현황' },
     ],
     meta: [

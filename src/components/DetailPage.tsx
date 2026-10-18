@@ -92,9 +92,9 @@ const DetailArticle = ({ data }: { data: DetailPageProps }) => {
   return (
     <article className="detail" ref={rootRef}>
       <div className="detail__inner">
-        <Link href={data.backHref} className="detail__back mono" data-cursor data-cursor-size="50">
+        <Link href={data.backHref} className="detail__back" data-cursor data-cursor-size="50">
           <FontAwesomeIcon icon={faArrowLeft} className="icon" />
-          View All Works
+          모든 프로젝트 보기
         </Link>
 
         <header className="detail__head">
@@ -215,7 +215,8 @@ const DetailArticle = ({ data }: { data: DetailPageProps }) => {
             {data.prev && (
               <Link href={data.prev.href} className="prev" data-cursor data-cursor-size="50">
                 <span className="label">
-                  <FontAwesomeIcon icon={faArrowLeft} className="icon" /> 이전 프로젝트
+                  <FontAwesomeIcon icon={faArrowLeft} className="icon" />
+                  이전 프로젝트
                 </span>
                 <strong>{data.prev.title}</strong>
               </Link>
