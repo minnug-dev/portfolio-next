@@ -3,6 +3,20 @@ import { aboutText } from '@/constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from '@fortawesome/free-solid-svg-icons';
 
+// desc가 배열이면 목록(ul), 문자열이면 문단(p)으로 렌더링
+const Desc = ({ desc }: { desc: string | string[] }) => {
+  if (Array.isArray(desc)) {
+    return (
+      <ul className="desc desc__list">
+        {desc.map((text, i) => (
+          <li key={i}>{text}</li>
+        ))}
+      </ul>
+    );
+  }
+  return <p className="desc">{desc}</p>;
+};
+
 const About = () => {
   return (
     <section id="about" className="about">
@@ -12,10 +26,9 @@ const About = () => {
         <div className="introduce">
           <div className="text-wrap">
             <div className="info">
-              <p>{aboutText.info[0]}</p>
-              <p>{aboutText.info[1]}</p>
-              <p>{aboutText.info[2]}</p>
-              <p>{aboutText.info[3]}</p>
+              {aboutText.info.map((text, index) => (
+                <p key={index}>{text}</p>
+              ))}
             </div>
           </div>
           <div className="img-wrap">
@@ -41,8 +54,9 @@ const About = () => {
                     <h4 className="name">{item.name}</h4>
                     <span className="date mono">{item.date}</span>
                   </div>
-                  <p className="desc">{item.desc}</p>
-                  {item.link && (
+                  <Desc desc={item.desc} />
+
+                  {/* {item.link && (
                     <a
                       href={item.link.url}
                       className="link"
@@ -54,7 +68,7 @@ const About = () => {
                       <FontAwesomeIcon icon={faLink} className="icon" />
                       {item.link.label}
                     </a>
-                  )}
+                  )} */}
                 </div>
               ))}
             </div>
