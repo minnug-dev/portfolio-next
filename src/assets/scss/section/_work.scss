@@ -105,6 +105,10 @@
           font-size: 0.875rem;
           border-radius: 50px;
           border: 1px solid var(--gray200);
+
+          @media (max-width: $mobile) {
+            font-size: 0.75rem;
+          }
         }
       }
 

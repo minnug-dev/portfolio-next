@@ -126,6 +126,10 @@
                   margin-bottom: 0.625rem;
                 }
               }
+
+              @media (max-width: $mobile) {
+                @include column-flex(start, start);
+              }
             }
 
             .desc {

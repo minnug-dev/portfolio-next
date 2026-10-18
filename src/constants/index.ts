@@ -367,7 +367,7 @@ export const projectText: ProjectText = {
       ],
       info: {
         name: '기업 연계 프로젝트',
-        date: '2024.08.12-2024.09.20',
+        date: '2024.08.12 - 2024.09.20',
         stack: 'Next.js, TypeScript, SCSS, Axios, React Hook Form, Zod, Figma',
       },
       img: {
@@ -396,7 +396,7 @@ export const projectText: ProjectText = {
       ],
       info: {
         name: '미니 프로젝트',
-        date: '2024.06.17 -2024.07.07',
+        date: '2024.06.17 - 2024.07.07',
         stack: 'Next.js, TypeScript, styled-components, React Hook Form, Figma',
       },
       img: {
