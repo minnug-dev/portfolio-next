@@ -79,12 +79,14 @@ const Contact = () => {
           <div className="contact__cont">
             <div>
               <h2 className="sub-tit mono">{contactText.stit}</h2>
-              <span className="name">{contactText.name}</span>
+              <a href="mailto:parkminnug@gmail.com">
+                <span className="name">{contactText.name}</span>
+              </a>
             </div>
             <div className="info">
               {contactText.contact.map((link, index) => (
                 <div key={index} className="menu">
-                  <h3>{link.tit}</h3>
+                  <h3 className="mono">{link.tit}</h3>
                   <ul>
                     {link.links.map((item, idx) => (
                       <li key={idx}>
