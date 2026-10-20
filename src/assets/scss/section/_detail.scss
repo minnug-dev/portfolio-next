@@ -440,3 +440,10 @@
     }
   }
 }
+
+// 반전 색상
+html.is-inverted {
+  .detail__pager a {
+    background-color: var(--gray500);
+  }
+}

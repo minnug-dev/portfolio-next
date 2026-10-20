@@ -80,7 +80,7 @@
           &.kolon-consoliworx,
           &.hyundai-mh,
           &.valex-prism {
-            background-color: var(--softYellow);
+            background-color: var(--softOrange);
           }
         }
       }
@@ -118,6 +118,22 @@
           box-shadow: 0 1rem 1.75rem 1rem rgba(22, 23, 0, 0.05);
         }
       }
+    }
+  }
+}
+
+// 반전 색상
+html.is-inverted {
+  .company {
+    &.chunjae-tab,
+    &.chunjae-web,
+    &.chunjae-app,
+    &.kolon-salesworx,
+    &.kolon-peopleworx,
+    &.kolon-consoliworx,
+    &.hyundai-mh,
+    &.valex-prism {
+      filter: invert(1) hue-rotate(180deg);
     }
   }
 }

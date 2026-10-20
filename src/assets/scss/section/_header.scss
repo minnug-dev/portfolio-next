@@ -18,7 +18,7 @@
   }
 
   &__inner {
-    @include flex(start, center);
+    @include flex(between, center);
 
     @media (max-width: $laptop) {
       justify-content: space-between;
@@ -177,6 +177,53 @@
             left: 0;
           }
         }
+      }
+    }
+  }
+}
+
+// 반전 색상
+.invert-toggle {
+  border: none;
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+  transition: color 0.3s;
+
+  .icon {
+    font-size: 1.5rem;
+  }
+}
+.header__util {
+  @include flex;
+  gap: 1rem;
+
+  &.contact-active {
+    .invert-toggle {
+      color: var(--white);
+    }
+
+    .header__nav__mobile span {
+      background-color: var(--white);
+    }
+  }
+}
+html.is-inverted {
+  .header__nav ul {
+    background-color: var(--gray300);
+  }
+
+  .header__nav.show ul {
+    background-color: var(--black);
+  }
+  .header__util {
+    &.contact-active {
+      .invert-toggle .icon {
+        color: var(--white);
+      }
+
+      .header__nav__mobile span {
+        background-color: var(--white);
       }
     }
   }

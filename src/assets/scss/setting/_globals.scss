@@ -54,6 +54,21 @@ body {
   padding-bottom: 5rem;
   margin-bottom: 100vh;
   background-color: var(--beige);
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
   background-size: 2rem 2rem;
+}
+
+// 반전 색상
+html.is-inverted {
+  filter: invert(1) hue-rotate(180deg);
+  img,
+  video,
+  picture {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+html.is-inverted {
+  .invert-toggle .icon {
+    color: var(--black);
+  }
 }
