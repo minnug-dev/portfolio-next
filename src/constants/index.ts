@@ -280,7 +280,7 @@ export const workText: WorkText = {
       img: workChunjaeApp,
       imgDesc: '천재교과서 디자인 화면',
       slug: 'chunjae-app',
-      company: '쳔재교과서',
+      company: '천재교과서',
       tit: '티스푼 앱 오늘의 학습 시간표 계획 개선',
       desc: '학습 과목 및 강좌 선택부터 단원 설정, 학습 일정 관리까지 이어지는 모바일 중심의 학습 계획 기능 구축 프로젝트에 참여했습니다.',
       tool: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Figma'],
