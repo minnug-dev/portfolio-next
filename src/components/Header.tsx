@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { scrollToTarget } from '@/utils/scrollTo';
 import { useNav } from '@/contexts/NavContext';
 import { resolveNavHref } from '@/utils/navLink';
+import InvertToggle from './InvertToggle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -194,18 +195,21 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <div
-          className={`header__nav__mobile ${show ? 'active' : ''}`}
-          id="headerToggle"
-          aria-controls="primary-menu"
-          aria-expanded={show ? 'true' : 'false'}
-          role="button"
-          tabIndex={0}
-          onClick={toggleMenu}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+        <div className="header__util">
+          <InvertToggle />
+          <div
+            className={`header__nav__mobile ${show ? 'active' : ''}`}
+            id="headerToggle"
+            aria-controls="primary-menu"
+            aria-expanded={show ? 'true' : 'false'}
+            role="button"
+            tabIndex={0}
+            onClick={toggleMenu}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </header>

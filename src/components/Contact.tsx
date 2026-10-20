@@ -24,7 +24,7 @@ const Contact = () => {
         start: 'bottom bottom',
         end: 'bottom top',
         toggleClass: {
-          targets: '.header__logo',
+          targets: '.header__logo, .header__util',
           className: 'contact-active',
         },
       });
