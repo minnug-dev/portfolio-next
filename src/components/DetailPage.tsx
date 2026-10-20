@@ -131,7 +131,7 @@ const DetailArticle = ({ data }: { data: DetailPageProps }) => {
           <div className={`detail__shots ${data.imagesClass ?? ''}`}>
             {data.images.map((image) => (
               <figure key={image.alt}>
-                <Image src={image.src} alt={image.alt} sizes="(max-width: 1024px) 100vw, 900px" />
+                <Image src={image.src} alt={image.alt} placeholder="blur" sizes="(max-width: 1024px) 100vw, 900px" />
                 {image.caption && <figcaption>{image.caption}</figcaption>}
               </figure>
             ))}
@@ -198,7 +198,12 @@ const DetailArticle = ({ data }: { data: DetailPageProps }) => {
 
                       {section.images?.map((image) => (
                         <figure key={image.alt}>
-                          <Image src={image.src} alt={image.alt} sizes="(max-width: 1024px) 100vw, 900px" />
+                          <Image
+                            src={image.src}
+                            alt={image.alt}
+                            placeholder="blur"
+                            sizes="(max-width: 1024px) 100vw, 900px"
+                          />
                           {image.caption && <figcaption>{image.caption}</figcaption>}
                         </figure>
                       ))}

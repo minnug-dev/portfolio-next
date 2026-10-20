@@ -11,7 +11,12 @@ const Work = () => {
             <div key={index} className="list-item">
               <Link href={`/work/${work.slug}`} data-cursor data-cursor-size="60" data-cursor-text="↗">
                 <div className="img-wrap">
-                  <Image src={work.img} alt={work.imgDesc} style={{ width: '100%', height: 'auto' }} />
+                  <Image
+                    placeholder="blur"
+                    src={work.img}
+                    alt={work.imgDesc}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
                 </div>
 
                 <h3 className="tit">
