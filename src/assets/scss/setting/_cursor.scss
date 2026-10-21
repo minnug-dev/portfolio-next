@@ -1,8 +1,12 @@
 @use './constants' as *;
 @use './mixin' as *;
 
+// 커스텀 커서는 마우스(hover + fine pointer)가 있는 1024px 이상 환경에서만 사용
+// (useCursor.ts의 matchMedia 조건과 반드시 동일해야 함)
+$cursor-media: '(min-width: #{$laptop}) and (hover: hover) and (pointer: fine)';
+
 .cursor {
-  @include flex(center, center);
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -11,6 +15,7 @@
   height: 1.25rem;
   background-color: var(--mainColorReverse);
   border-radius: 50%;
+  opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
@@ -22,12 +27,22 @@
     font-weight: 300;
     white-space: nowrap;
   }
-
-  @media (max-width: $desktop) {
-    display: none;
-  }
 }
 
-[data-cursor] * {
-  pointer-events: none;
+@media #{$cursor-media} {
+  // 커스텀 커서가 있을 때만 기본 커서 숨김 (노트북·터치 환경에서 커서가 사라지는 문제 방지)
+  // .invert-toggle 등 컴포넌트의 cursor: pointer보다 우선해야 하므로 !important 사용
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+
+  .cursor {
+    @include flex(center, center);
+  }
+
+  [data-cursor] * {
+    pointer-events: none;
+  }
 }

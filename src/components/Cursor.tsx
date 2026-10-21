@@ -1,13 +1,17 @@
 'use client';
 
-import { useCursor } from '../utils/useCursor';
+import { useRef } from 'react';
+import { useCursor } from '@/utils/useCursor';
 
 const Cursor = () => {
-  useCursor();
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLSpanElement>(null);
+
+  useCursor(cursorRef, textRef);
 
   return (
-    <div className="cursor">
-      <span className="cursor-text"></span>
+    <div className="cursor" ref={cursorRef} aria-hidden="true">
+      <span className="cursor-text" ref={textRef}></span>
     </div>
   );
 };

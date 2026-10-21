@@ -1,108 +1,121 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, RefObject } from 'react';
 import gsap from 'gsap';
 
-export function useCursor() {
-  const isHoveredRef = useRef(false);
-  const currentTargetRef = useRef<HTMLElement | null>(null);
-  const mousePosRef = useRef({ x: 0, y: 0 });
+const CURSOR_MEDIA = '(min-width: 1024px) and (hover: hover) and (pointer: fine)';
+const BASE_SIZE = 20;
 
+export function useCursor(cursorRef: RefObject<HTMLDivElement | null>, textRef: RefObject<HTMLSpanElement | null>) {
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px)');
-    if (!mediaQuery.matches) return;
-
-    const cursor = document.querySelector<HTMLElement>('.cursor');
-    const text = document.querySelector<HTMLElement>('.cursor-text');
-
+    const cursor = cursorRef.current;
+    const text = textRef.current;
     if (!cursor) return;
 
-    gsap.set(cursor, {
-      xPercent: -50,
-      yPercent: -50,
-    });
+    const mediaQuery = window.matchMedia(CURSOR_MEDIA);
+    let teardown: (() => void) | undefined;
 
-    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.18, ease: 'power3.out' });
-    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.18, ease: 'power3.out' });
+    const setup = () => {
+      let currentTarget: HTMLElement | null = null;
+      let visible = false;
+      let mouse = { x: 0, y: 0 };
 
-    function updateCursorState(target: HTMLElement | null) {
-      if (target) {
-        if (!isHoveredRef.current || currentTargetRef.current !== target) {
-          isHoveredRef.current = true;
-          currentTargetRef.current = target;
+      gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 
-          const size = Number(target.dataset.cursorSize) || 100;
-          const vars: gsap.TweenVars = {
-            width: size,
-            height: size,
-            duration: 0.3,
-            ease: 'power3.out',
-            overwrite: 'auto',
-          };
+      const xTo = gsap.quickTo(cursor, 'x', { duration: 0.18, ease: 'power3.out' });
+      const yTo = gsap.quickTo(cursor, 'y', { duration: 0.18, ease: 'power3.out' });
 
-          if (target.dataset.cursorColor) {
-            vars.backgroundColor = target.dataset.cursorColor;
-          }
+      const resetCursor = () => {
+        currentTarget = null;
+        gsap.to(cursor, {
+          width: BASE_SIZE,
+          height: BASE_SIZE,
+          backgroundColor: 'var(--mainColorReverse)',
+          duration: 0.4,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        });
+        if (text) text.textContent = '';
+      };
 
-          gsap.to(cursor, vars);
-          if (text) text.textContent = target.dataset.cursorText || '';
+      const updateCursorState = (target: HTMLElement | null) => {
+        if (target === currentTarget) return;
+
+        if (!target) {
+          resetCursor();
+          return;
         }
-      } else {
-        if (isHoveredRef.current) {
-          isHoveredRef.current = false;
-          currentTargetRef.current = null;
 
-          const vars: gsap.TweenVars = {
-            width: 20,
-            height: 20,
-            duration: 0.4,
-            ease: 'power3.out',
-            overwrite: 'auto',
-          };
+        currentTarget = target;
+        const size = Number(target.dataset.cursorSize) || 100;
+        const vars: gsap.TweenVars = {
+          width: size,
+          height: size,
+          duration: 0.3,
+          ease: 'power3.out',
+          overwrite: 'auto',
+        };
+        if (target.dataset.cursorColor) vars.backgroundColor = target.dataset.cursorColor;
 
-          if (text && text.textContent) {
-            vars.backgroundColor = 'var(--mainColorReverse)';
-          }
+        gsap.to(cursor, vars);
+        if (text) text.textContent = target.dataset.cursorText || '';
+      };
 
-          gsap.to(cursor, vars);
-          if (text) text.textContent = '';
+      const show = () => {
+        if (visible) return;
+        visible = true;
+        gsap.to(cursor, { opacity: 1, duration: 0.2, overwrite: 'auto' });
+      };
+
+      const onMove = (e: PointerEvent) => {
+        mouse = { x: e.clientX, y: e.clientY };
+
+        if (!visible) {
+          gsap.set(cursor, { x: e.clientX, y: e.clientY });
+          show();
         }
-      }
-    }
+        xTo(e.clientX);
+        yTo(e.clientY);
 
-    function move(e: PointerEvent) {
-      mousePosRef.current = { x: e.clientX, y: e.clientY };
+        updateCursorState((e.target as Element | null)?.closest<HTMLElement>('[data-cursor]') ?? null);
+      };
 
-      xTo(e.clientX);
-      yTo(e.clientY);
+      const onScroll = () => {
+        if (!visible) return;
+        const el = document.elementFromPoint(mouse.x, mouse.y);
+        updateCursorState(el?.closest<HTMLElement>('[data-cursor]') ?? null);
+      };
 
-      const target = (e.target as HTMLElement)?.closest<HTMLElement>('[data-cursor]') ?? null;
-      updateCursorState(target);
-    }
+      const onLeave = () => {
+        visible = false;
+        resetCursor();
+        gsap.to(cursor, { opacity: 0, duration: 0.2, overwrite: 'auto' });
+      };
 
-    function handleScroll() {
-      const { x, y } = mousePosRef.current;
-      const elementAtPoint = document.elementFromPoint(x, y);
+      const root = document.documentElement;
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      root.addEventListener('mouseleave', onLeave);
 
-      if (elementAtPoint) {
-        const target = (elementAtPoint as HTMLElement).closest<HTMLElement>('[data-cursor]');
-        updateCursorState(target);
-      }
-    }
+      return () => {
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('scroll', onScroll);
+        root.removeEventListener('mouseleave', onLeave);
+        gsap.killTweensOf(cursor);
+        gsap.set(cursor, { clearProps: 'all' });
+        if (text) text.textContent = '';
+      };
+    };
 
-    function mouseLeaveWindow() {
-      isHoveredRef.current = false;
-      currentTargetRef.current = null;
-      gsap.to(cursor, { width: 20, height: 20, duration: 0.4, overwrite: 'auto' });
-      if (text) text.textContent = '';
-    }
+    const sync = () => {
+      teardown?.();
+      teardown = mediaQuery.matches ? setup() : undefined;
+    };
 
-    window.addEventListener('pointermove', move);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('mouseleave', mouseLeaveWindow);
+    sync();
+    mediaQuery.addEventListener('change', sync);
 
     return () => {
-      window.removeEventListener('pointermove', move);
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mouseleave', mouseLeaveWindow);
+      mediaQuery.removeEventListener('change', sync);
+      teardown?.();
     };
-  }, []);
+  }, [cursorRef, textRef]);
 }
