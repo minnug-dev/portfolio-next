@@ -6,12 +6,13 @@ import workChunjaeApp from '../assets/img/work_chunjae_app.png';
 import workMeplzKolon01 from '../assets/img/work_meplz_sales.png';
 import workMeplzKolon02 from '../assets/img/work_meplz_people.png';
 import workMeplzKolon03 from '../assets/img/work_meplz_consoli.png';
-import workMeplzHuyndai from '../assets/img/work_meplz_hyundai.png';
+import workMeplzHyundai from '../assets/img/work_meplz_hyundai.png';
 import workMeplzValex from '../assets/img/work_meplz_valex.png';
 import projectDain from '../assets/img/project_dainreview.png';
 import projectJeogi from '../assets/img/project_jeogieottae.png';
 import projectHealth from '../assets/img/project_healthcare.png';
 import projectFast from '../assets/img/project_fastcampus.png';
+import { CONTACT_EMAIL } from './site';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faNotion } from '@fortawesome/free-brands-svg-icons';
 import { faBriefcase, faGraduationCap, faMedal, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
@@ -317,7 +318,7 @@ export const workText: WorkText = {
     },
     {
       link: 'https://app.notion.com/p/minnug/M-H-d80e6a61c5c24954b413924810dca66a?source=copy_link',
-      img: workMeplzHuyndai,
+      img: workMeplzHyundai,
       imgDesc: '현대 M/H 관리 시스템 디자인 화면',
       slug: 'hyundai-mh',
       company: '미플즈',
@@ -331,7 +332,7 @@ export const workText: WorkText = {
       imgDesc: '발렉스서비스 PRISM 인사 시스템 디자인 화면',
       slug: 'valex-prism',
       company: '미플즈',
-      tit: '발렉스서비스 PRISM 인사 시스템 구축 ',
+      tit: '발렉스서비스 PRISM 인사 시스템 구축',
       desc: '임직원의 로그인 및 인증 절차를 모바일 환경에서도 편리하게 이용할 수 있도록 구축한 인사관리 시스템의 모바일 웹 신규 프로젝트입니다.',
       tool: ['HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Figma'],
     },
@@ -350,7 +351,7 @@ export const projectText: ProjectText = {
       },
       buttons: [
         {
-          text: 'Github',
+          text: 'GitHub',
           href: 'https://github.com/minnug-dev/final_project',
           icon: faGithub,
         },
@@ -384,7 +385,7 @@ export const projectText: ProjectText = {
       },
       buttons: [
         {
-          text: 'Github',
+          text: 'GitHub',
           href: 'https://github.com/minnug-dev/jeogieottae_mini',
           icon: faGithub,
         },
@@ -413,7 +414,7 @@ export const projectText: ProjectText = {
       },
       buttons: [
         {
-          text: 'Github',
+          text: 'GitHub',
           href: 'https://github.com/minnug-dev/health-calendar_toy2',
           icon: faGithub,
         },
@@ -442,7 +443,7 @@ export const projectText: ProjectText = {
       },
       buttons: [
         {
-          text: 'Github',
+          text: 'GitHub',
           href: 'https://github.com/minnug-dev/intranet-app_toy1',
           icon: faGithub,
         },
@@ -473,12 +474,12 @@ export const contactText: ContactText = {
       tit: 'link',
       links: [
         {
-          link: 'mailto:parkminnug@gmail.com',
+          link: `mailto:${CONTACT_EMAIL}`,
           name: 'Email',
         },
         {
           link: 'https://github.com/minnug-dev',
-          name: 'Github',
+          name: 'GitHub',
         },
         {
           link: 'https://app.notion.com/p/minnug/Minjoo-Park-0d45b8b2d93a4656b8657faf665d23a0?source=copy_link',
@@ -492,29 +493,12 @@ export const contactText: ContactText = {
     },
     {
       tit: 'menu',
-      links: [
-        {
-          link: '#about',
-          name: 'About',
-        },
-        {
-          link: '#work',
-          name: 'Work',
-        },
-        {
-          link: '#project',
-          name: 'Project',
-        },
-        {
-          link: '#contact',
-          name: 'Contact',
-        },
-      ],
+      links: headerNav.map(({ link, name }) => ({ link, name })),
     },
   ],
 };
 
 export const footerText: FooterText = {
-  name: 'Park Minjoo.  All rights reserved.',
+  name: 'Park Minjoo. All rights reserved.',
   info: 'Built with Next.js & TypeScript',
 };
