@@ -1,16 +1,19 @@
 import { ReactNode } from 'react';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import localFont from 'next/font/local';
 import { Montserrat, Space_Mono } from 'next/font/google';
 import '@/assets/scss/style.scss';
-import Cursor from '../components/Cursor';
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, siteOpenGraph } from '@/constants/site';
+import Skip from '@/components/Skip';
+import Cursor from '@/components/Cursor';
 
 config.autoAddCss = false;
 
 const pretendard = localFont({
   src: '../assets/font/pretendard/PretendardVariable.woff2',
+  weight: '45 920',
   display: 'swap',
   variable: '--font-pretendard',
 });
@@ -29,30 +32,22 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: '박민주 포트폴리오',
-  description: 'Next.js로 제작한 박민주 포트폴리오 사이트입니다.',
-  openGraph: {
-    title: '박민주 포트폴리오',
-    description: 'Next.js로 제작한 박민주 포트폴리오 사이트입니다.',
-    url: 'https://minjoo-park.netlify.app/',
-    siteName: '박민주 포트폴리오',
-    images: [
-      {
-        url: 'https://minjoo-park.netlify.app/og-img.png',
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: 'ko_KR',
-    type: 'website',
-  },
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
+  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] },
+  openGraph: siteOpenGraph,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ko" suppressHydrationWarning>
-      <link rel="icon" href="favicon.svg" />
-      <body className={`${pretendard.variable} ${montserrat.variable} ${spaceMono.variable}`}>
+    <html
+      lang="ko"
+      className={`${pretendard.variable} ${montserrat.variable} ${spaceMono.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
+        <Skip />
         <Cursor />
         {children}
       </body>
