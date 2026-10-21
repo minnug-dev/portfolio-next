@@ -1,15 +1,18 @@
-import React from 'react';
+const skipLinks = [
+  { href: '#main', label: '본문 바로가기' },
+  { href: '#header', label: '메인 메뉴 바로가기' },
+  { href: '#contact', label: '연락처 바로가기' },
+  { href: '#footer', label: '푸터 바로가기' },
+];
 
 const Skip = () => {
   return (
     <div id="skip">
-      <a href="#header">헤더 영역 바로가기</a>
-      <a href="#intro">소개 영역 바로가기</a>
-      <a href="#skill">스킬 영역 바로가기</a>
-      <a href="#site">사이트 영역 바로가기</a>
-      <a href="#port">포트폴리오 영역 바로가기</a>
-      <a href="#contact">연락처 영역 바로가기</a>
-      <a href="#footer">푸터 영역 바로가기</a>
+      {skipLinks.map((link) => (
+        <a key={link.href} href={link.href}>
+          {link.label}
+        </a>
+      ))}
     </div>
   );
 };

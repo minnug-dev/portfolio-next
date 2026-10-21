@@ -1,9 +1,5 @@
-'use client';
-
-import React from 'react';
 import { NavProvider } from '@/contexts/NavContext';
 import Header from '@/components/Header';
-import Skip from '@/components/Skip';
 import Intro from '@/components/Intro';
 import About from '@/components/About';
 import Work from '@/components/Work';
@@ -13,19 +9,16 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <>
-      <Skip />
-      <NavProvider>
-        <Header />
-        <main className="main" role="main">
-          <Intro />
-          <About />
-          <Work />
-          <Project />
-          <Contact />
-        </main>
-        <Footer />
-      </NavProvider>
-    </>
+    <NavProvider>
+      <Header />
+      <main id="main" className="main">
+        <Intro />
+        <About />
+        <Work />
+        <Project />
+        <Contact />
+      </main>
+      <Footer />
+    </NavProvider>
   );
 }
