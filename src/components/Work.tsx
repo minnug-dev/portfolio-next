@@ -1,20 +1,22 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { workText } from '@/constants';
+
 const Work = () => {
   return (
     <section id="work" className="work">
       <div className="work__inner">
         <h2 className="sub-tit mono">{workText.stit}</h2>
         <div className="work-list">
-          {workText.list.map((work, index) => (
-            <div key={index} className="list-item">
+          {workText.list.map((work) => (
+            <div key={work.slug} className="list-item">
               <Link href={`/work/${work.slug}`} data-cursor data-cursor-size="60" data-cursor-text="↗">
                 <div className="img-wrap">
                   <Image
                     placeholder="blur"
                     src={work.img}
                     alt={work.imgDesc}
+                    sizes="(max-width: 768px) 100vw, 600px"
                     style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
@@ -25,8 +27,8 @@ const Work = () => {
                 </h3>
                 <p>{work.desc}</p>
                 <div className="tool-wrap">
-                  {work.tool.map((tool, index) => (
-                    <span className="mono" key={index}>
+                  {work.tool.map((tool) => (
+                    <span className="mono" key={tool}>
                       {tool}
                     </span>
                   ))}
