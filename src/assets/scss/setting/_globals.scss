@@ -1,9 +1,5 @@
 @use './constants' as *;
 
-* {
-  cursor: none;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -19,14 +15,12 @@
 
 body {
   min-width: 320px;
-  font-size: 1rem;
   font-family: var(--mainEng-font), var(--mainKor-font), sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   color: var(--black);
   letter-spacing: -0.01em;
-  cursor: none;
 
   @media (max-width: $tablet) {
     font-size: 0.875rem;

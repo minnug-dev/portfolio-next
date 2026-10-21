@@ -1,8 +1,8 @@
 @use './constants' as *;
 
 :root {
-  --mainEng-font: 'Montserrat';
-  --mainKor-font: 'Pretendard';
+  --mainEng-font: var(--font-montserrat), 'Montserrat';
+  --mainKor-font: var(--font-pretendard), 'Pretendard';
 
   --mainColor: #0d99ff;
   --mainColorReverse: #f26600;
