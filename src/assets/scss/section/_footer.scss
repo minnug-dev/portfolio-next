@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
   z-index: -2;
-  padding: 0 var (--spacing-base);
+  padding: 0 (--spacing-base);
   background-color: rgba(32, 32, 32, 0.95);
 
   &__inner {
@@ -39,6 +39,6 @@
 // 반전 색상
 html.is-inverted {
   .footer {
-    background-color: var(--gray100);
+    background-color: var(--black200);
   }
 }
