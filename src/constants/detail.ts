@@ -6,10 +6,10 @@ import chunjaeTabList from '@/assets/img/work_chunjae_tab_list.webp';
 import chunjaeTabTimetable from '@/assets/img/work_chunjae_tab_timetable.webp';
 import chunjaeWeb from '@/assets/img/work_chunjae_web.jpg';
 import chunjaeWebPop from '@/assets/img/work_chunjae_web_pop.jpg';
-import chunjaeAppNone from '@/assets/img/work_chunjae_app_stap_none.png';
-import chunjaeAppStep01 from '@/assets/img/work_chunjae_app_stap01.png';
-import chunjaeAppStep02 from '@/assets/img/work_chunjae_app_stap02.png';
-import chunjaeAppStep03 from '@/assets/img/work_chunjae_app_stap03.png';
+import chunjaeAppNone from '@/assets/img/work_chunjae_app_step_none.png';
+import chunjaeAppStep01 from '@/assets/img/work_chunjae_app_step01.png';
+import chunjaeAppStep02 from '@/assets/img/work_chunjae_app_step02.png';
+import chunjaeAppStep03 from '@/assets/img/work_chunjae_app_step03.png';
 import meplzSales from '@/assets/img/work_meplz_sales.png';
 import meplzSalesMain from '@/assets/img/work_meplz_sales_main.png';
 import meplzSalesTrade from '@/assets/img/work_meplz_sales_trade.png';
@@ -61,6 +61,12 @@ export interface DetailSection {
   blocks?: DetailBlock[];
 }
 
+// 렌더링용으로 blocks 하나로 정규화한 섹션 (utils/detail.ts 의 normalizeSections 참고)
+export interface DetailSectionView {
+  tit: string;
+  blocks: DetailBlock[];
+}
+
 export interface DetailMeta {
   label: string;
   value: string;
@@ -92,12 +98,11 @@ export interface DetailPageProps {
   title: string;
   subtitle?: string;
   desc: string;
-  // tags: string[];
   meta: DetailMeta[];
   images?: DetailImage[];
   imagesClass?: string;
   links: DetailLink[];
-  sections: DetailSection[];
+  sections: DetailSectionView[];
   prev?: DetailNavItem;
   next?: DetailNavItem;
 }

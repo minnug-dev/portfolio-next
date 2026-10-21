@@ -1,5 +1,39 @@
 import { workText, projectText } from '@/constants';
-import { workDetail, projectDetail, DetailPageProps } from '@/constants/detail';
+import {
+  workDetail,
+  projectDetail,
+  DetailPageProps,
+  DetailSection,
+  DetailSectionView,
+  DetailBlock,
+  DetailNavItem,
+} from '@/constants/detail';
+
+// blocks 없이 paragraphs/list/cards/images 필드로 작성된 섹션도 blocks 형태로 통일
+// (필드 렌더링 순서: paragraphs → subtit → list → cards → images)
+const normalizeSections = (sections: DetailSection[] = []): DetailSectionView[] =>
+  sections.map((section) => {
+    if (section.blocks) return { tit: section.tit, blocks: section.blocks };
+
+    const blocks: DetailBlock[] = [];
+    if (section.paragraphs) blocks.push({ type: 'paragraphs', items: section.paragraphs });
+    if (section.subtit) blocks.push({ type: 'subtit', text: section.subtit });
+    if (section.list) blocks.push({ type: 'list', items: section.list });
+    if (section.cards) blocks.push({ type: 'cards', items: section.cards });
+    if (section.images) blocks.push({ type: 'images', items: section.images });
+
+    return { tit: section.tit, blocks };
+  });
+
+const getSiblings = <T>(list: T[], index: number, toNav: (item: T) => DetailNavItem) => {
+  const prev = list[index - 1];
+  const next = list[index + 1];
+
+  return {
+    prev: prev && toNav(prev),
+    next: next && toNav(next),
+  };
+};
 
 export const getWorkPage = (slug: string): DetailPageProps | null => {
   const list = workText.list;
@@ -8,8 +42,6 @@ export const getWorkPage = (slug: string): DetailPageProps | null => {
 
   const work = list[i];
   const detail = workDetail[slug];
-  const prev = list[i - 1];
-  const next = list[i + 1];
 
   return {
     category: 'Work',
@@ -17,14 +49,12 @@ export const getWorkPage = (slug: string): DetailPageProps | null => {
     backHref: '/#work',
     title: work.tit.trim(),
     desc: work.desc,
-    // tags: work.tool,
     meta: detail?.meta ?? [],
     images: detail?.images,
     imagesClass: detail?.imagesClass,
     links: [],
-    sections: detail?.sections ?? [],
-    prev: prev && { href: `/work/${prev.slug}`, title: prev.tit.trim() },
-    next: next && { href: `/work/${next.slug}`, title: next.tit.trim() },
+    sections: normalizeSections(detail?.sections),
+    ...getSiblings(list, i, (item) => ({ href: `/work/${item.slug}`, title: item.tit.trim() })),
   };
 };
 
@@ -35,8 +65,6 @@ export const getProjectPage = (slug: string): DetailPageProps | null => {
 
   const project = list[i];
   const detail = projectDetail[slug];
-  const prev = list[i - 1];
-  const next = list[i + 1];
 
   return {
     category: 'Project',
@@ -45,15 +73,13 @@ export const getProjectPage = (slug: string): DetailPageProps | null => {
     title: project.text.tit,
     subtitle: project.text.subTitle,
     desc: project.text.desc,
-    // tags: project.info.stack.split(',').map((s) => s.trim()),
     meta: [
       { label: '구분', value: project.info.name },
       { label: '기간', value: project.info.date },
       ...(detail?.meta ?? []),
     ],
     links: project.buttons,
-    sections: detail?.sections ?? [],
-    prev: prev && { href: `/project/${prev.slug}`, title: prev.text.tit },
-    next: next && { href: `/project/${next.slug}`, title: next.text.tit },
+    sections: normalizeSections(detail?.sections),
+    ...getSiblings(list, i, (item) => ({ href: `/project/${item.slug}`, title: item.text.tit })),
   };
 };
