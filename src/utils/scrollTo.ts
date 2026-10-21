@@ -9,11 +9,12 @@ interface ScrollToOptions {
   ease?: string;
 }
 
-export const scrollToTarget = (target: string | Element, options: ScrollToOptions = {}) => {
+export const scrollToTarget = (target: string | Element | number, options: ScrollToOptions = {}) => {
   const { offsetY = 0, duration = 1.2, ease = 'power3.inOut' } = options;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   gsap.to(window, {
-    duration,
+    duration: reduceMotion ? 0 : duration,
     scrollTo: {
       y: target,
       offsetY,
@@ -21,3 +22,7 @@ export const scrollToTarget = (target: string | Element, options: ScrollToOption
     ease,
   });
 };
+
+// Contact로 이동
+export const scrollToBottom = (options: Omit<ScrollToOptions, 'offsetY'> = {}) =>
+  scrollToTarget(document.documentElement.scrollHeight - window.innerHeight, options);

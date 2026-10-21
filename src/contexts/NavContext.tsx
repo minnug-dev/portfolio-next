@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+'use client';
+
+import { createContext, useContext, useMemo, useState, ReactNode } from 'react';
 
 interface NavContextType {
   activeLink: string | null;
@@ -10,7 +12,9 @@ const NavContext = createContext<NavContextType | null>(null);
 export const NavProvider = ({ children }: { children: ReactNode }) => {
   const [activeLink, setActiveLink] = useState<string | null>(null);
 
-  return <NavContext.Provider value={{ activeLink, setActiveLink }}>{children}</NavContext.Provider>;
+  const value = useMemo(() => ({ activeLink, setActiveLink }), [activeLink]);
+
+  return <NavContext.Provider value={value}>{children}</NavContext.Provider>;
 };
 
 export const useNav = () => {

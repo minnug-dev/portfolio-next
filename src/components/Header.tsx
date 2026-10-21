@@ -1,26 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react';
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { headerNav } from '@/constants';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { scrollToTarget } from '@/utils/scrollTo';
+import { headerNav } from '@/constants';
 import { useNav } from '@/contexts/NavContext';
-import { resolveNavHref } from '@/utils/navLink';
+import { useSectionNav } from '@/utils/useSectionNav';
 import InvertToggle from './InvertToggle';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// 스크롤 스파이 대상 (#contact 는 Contact 컴포넌트에서 별도 처리)
+const spyTargets = headerNav.filter((nav) => nav.link.startsWith('#') && nav.link !== '#contact');
+
 const Header = () => {
-  const headerRef = useRef<HTMLElement | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
   const { activeLink, setActiveLink } = useNav();
-  const pathname = usePathname();
-  const router = useRouter();
-  const isHome = pathname === '/';
+  const { isHome, getHref, handleAnchorClick } = useSectionNav();
+  const [show, setShow] = useState(false);
 
   // hover 인터랙션
   useEffect(() => {
-    const items = document.querySelectorAll<HTMLLIElement>('.header__nav li');
+    const items = navRef.current?.querySelectorAll<HTMLLIElement>('li');
+    if (!items) return;
 
     const cleanups: Array<() => void> = [];
 
@@ -80,21 +83,16 @@ const Header = () => {
       });
     });
 
-    return () => {
-      cleanups.forEach((cleanup) => cleanup());
-    };
+    return () => cleanups.forEach((cleanup) => cleanup());
   }, []);
 
   // active 인터랙션 (점 표시/숨김)
   useEffect(() => {
-    const items = document.querySelectorAll<HTMLLIElement>('.header__nav li');
-
-    items.forEach((item) => {
+    navRef.current?.querySelectorAll<HTMLLIElement>('li').forEach((item) => {
       const dot = item.querySelector('.dot');
-      const a = item.querySelector('a');
-      if (!dot || !a) return;
+      if (!dot) return;
 
-      const isActive = !!activeLink && a.getAttribute('href') === resolveNavHref(activeLink, isHome);
+      const isActive = !!activeLink && item.dataset.link === activeLink;
 
       gsap.to(dot, {
         scale: isActive ? 1 : 0,
@@ -103,18 +101,14 @@ const Header = () => {
         ease: isActive ? 'back.out(3)' : 'power1.out',
       });
     });
-  }, [activeLink, isHome]);
+  }, [activeLink]);
 
-  // active 업데이트
+  // 스크롤 위치에 따라 active 업데이트
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const spyTargets = headerNav.filter((nav) => nav.link && nav.link.startsWith('#') && nav.link !== '#contact');
-
       spyTargets.forEach((nav, index) => {
         const target = document.querySelector(nav.link);
         if (!target) return;
-
-        const isFirst = index === 0;
 
         ScrollTrigger.create({
           trigger: target,
@@ -122,7 +116,7 @@ const Header = () => {
           end: 'bottom center',
           onEnter: () => setActiveLink(nav.link),
           onEnterBack: () => setActiveLink(nav.link),
-          onLeaveBack: isFirst ? () => setActiveLink(null) : undefined,
+          onLeaveBack: index === 0 ? () => setActiveLink(null) : undefined,
         });
       });
     });
@@ -130,61 +124,38 @@ const Header = () => {
     return () => ctx.revert();
   }, [setActiveLink]);
 
-  const [show, setShow] = useState(false);
+  // ESC 로 모바일 메뉴 닫기
+  useEffect(() => {
+    if (!show) return;
 
-  const toggleMenu = () => {
-    setShow((prevShow) => !prevShow);
-  };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShow(false);
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [show]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    setActiveLink(url);
-
-    if (show) {
-      setShow(false);
-    }
-
-    if (!url || !url.startsWith('#') || url === '#') return;
-
-    e.preventDefault();
-
-    // 상세 페이지에서는 홈의 해당 섹션으로 이동
-    if (!isHome && url !== '#contact') {
-      router.push(resolveNavHref(url, false));
-      return;
-    }
-
-    const headerHeight = headerRef.current?.offsetHeight || 0;
-
-    if (url === '#contact') {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-      window.scrollTo({
-        top: maxScroll,
-        behavior: 'smooth',
-      });
-    } else {
-      scrollToTarget(url, {
-        offsetY: -headerHeight,
-      });
-    }
+    setShow(false);
+    handleAnchorClick(e, url);
   };
 
   return (
-    <header id="header" className="header" role="banner" ref={headerRef}>
+    <header id="header" className="header">
       <div className="header__inner">
         <div className="header__logo">
-          <h1>
-            <Link href={isHome ? '#' : '/'}>minjoo</Link>
-          </h1>
+          <Link href={isHome ? '#' : '/'}>minjoo</Link>
         </div>
-        <nav className={`header__nav ${show ? 'show' : ''}`} role="navigation" aria-label="메인 메뉴">
+        <nav id="primary-menu" className={`header__nav ${show ? 'show' : ''}`} aria-label="메인 메뉴" ref={navRef}>
           <ul>
-            {headerNav.map((nav, key) => (
-              <li key={key} className={activeLink === nav.link ? 'active' : ''}>
-                <span className="dot"></span>
+            {headerNav.map((nav) => (
+              <li key={nav.link} data-link={nav.link} className={activeLink === nav.link ? 'active' : ''}>
+                <span className="dot" aria-hidden="true"></span>
                 <a
                   className="mono"
-                  href={resolveNavHref(nav.link, isHome)}
+                  href={getHref(nav.link)}
+                  aria-current={activeLink === nav.link ? 'location' : undefined}
                   data-cursor
                   data-cursor-size="50"
                   onClick={(e) => handleNavClick(e, nav.link)}
@@ -197,19 +168,18 @@ const Header = () => {
         </nav>
         <div className="header__util">
           <InvertToggle />
-          <div
+          <button
+            type="button"
             className={`header__nav__mobile ${show ? 'active' : ''}`}
-            id="headerToggle"
             aria-controls="primary-menu"
-            aria-expanded={show ? 'true' : 'false'}
-            role="button"
-            tabIndex={0}
-            onClick={toggleMenu}
+            aria-expanded={show}
+            aria-label={show ? '메뉴 닫기' : '메뉴 열기'}
+            onClick={() => setShow((prev) => !prev)}
           >
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </div>
     </header>
